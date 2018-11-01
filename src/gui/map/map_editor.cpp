@@ -954,6 +954,7 @@ void MapEditorController::createActions()
 	scale_map_act = newAction("scalemap", tr("Change map scale..."), this, SLOT(scaleMapClicked()), "tool-scale.png", tr("Change the map scale and adjust map objects and symbol sizes"), "map_menu.html");
 	rotate_map_act = newAction("rotatemap", tr("Rotate map..."), this, SLOT(rotateMapClicked()), "tool-rotate.png", tr("Rotate the whole map"), "map_menu.html");
 	map_notes_act = newAction("mapnotes", tr("Map notes..."), this, SLOT(mapNotesClicked()), nullptr, QString{}, "map_menu.html");
+	map_info_act = newAction("mapinfo", tr("Map info"), this, SLOT(mapInfoClicked()), nullptr, QString{}, "map_menu.html");
 	
 	template_window_act = newCheckAction("templatewindow", tr("Template setup window"), this, SLOT(showTemplateWindow(bool)), "templates", tr("Show/Hide the template window"), "templates_menu.html");
 	//QAction* template_config_window_act = newCheckAction("templateconfigwindow", tr("Template configurations window"), this, SLOT(showTemplateConfigurationsWindow(bool)), "window-new", tr("Show/Hide the template configurations window"));
@@ -1186,6 +1187,7 @@ void MapEditorController::createMenuAndToolbars()
 	map_menu->addAction(scale_map_act);
 	map_menu->addAction(rotate_map_act);
 	map_menu->addAction(map_notes_act);
+	map_menu->addAction(map_info_act);
 	map_menu->addSeparator();
 	updateMapPartsUI();
 	map_menu->addAction(mappart_add_act);
@@ -2040,6 +2042,30 @@ void MapEditorController::rotateMapClicked()
 {
 	RotateMapDialog dialog(window, map);
 	dialog.setWindowModality(Qt::WindowModal);
+	dialog.exec();
+}
+
+void MapEditorController::mapInfoClicked()
+{
+	const QLatin1Literal linebreak("<br/>");
+	auto text = tr("Map scale: 1:%1").arg(map->getScaleDenominator()).append(linebreak);
+	text.append(tr("Reference system: %1").arg(map->getGeoreferencing().getProjectedCoordinatesName())).append(linebreak);
+	text.append(tr("Number of objects: %1").arg(map->getNumObjects())).append(linebreak);
+	const auto n_map_colors = map->getNumColors();
+	text.append(tr("Colors: %1").arg(n_map_colors)).append(linebreak);
+	unsigned n_spot_colors = 0;
+	for (unsigned color_prio = 0; color_prio < n_map_colors; ++color_prio)
+	{
+		const auto color = map->getMapColor(color_prio);
+		if (color && color->getSpotColorMethod() == MapColor::SpotColor)
+			++n_spot_colors;
+	}
+	text.append(tr("Spot colors: %1").arg(n_spot_colors));
+
+	QMessageBox dialog(window);
+	dialog.setWindowTitle(tr("Map information"));
+	dialog.setText(text);
+	dialog.addButton(QMessageBox::Ok);
 	dialog.exec();
 }
 

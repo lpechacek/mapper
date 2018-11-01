@@ -327,6 +327,8 @@ public slots:
 	void scaleMapClicked();
 	/** Shows the RotateMapDialog. */
 	void rotateMapClicked();
+	/** Shows map information dialog. */
+	void mapInfoClicked();
 	/** Shows the dialog to enter map notes. */
 	void mapNotesClicked();
 	
@@ -691,6 +693,7 @@ private:
 	QAction* scale_map_act;
 	QAction* rotate_map_act;
 	QAction* map_notes_act;
+	QAction* map_info_act;
 	QAction* symbol_set_id_act;
 	
 	QAction* color_window_act;
