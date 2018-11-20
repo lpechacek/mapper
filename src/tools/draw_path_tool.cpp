@@ -428,6 +428,7 @@ bool DrawPathTool::mouseDoubleClickEvent(QMouseEvent* event, MapCoordF map_coord
 	Q_UNUSED(map_coord);
 	Q_UNUSED(widget);
 	
+#ifndef Q_OS_ANDROID
 	if (event->button() != Qt::LeftButton)
 		return false;
 	
@@ -438,6 +439,9 @@ bool DrawPathTool::mouseDoubleClickEvent(QMouseEvent* event, MapCoordF map_coord
 		if (editingInProgress())
 			finishDrawing();
 	}
+#else
+	Q_UNUSED(event);
+#endif
 	return true;
 }
 
