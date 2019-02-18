@@ -833,6 +833,11 @@ public:
 	 * TODO: make a separate method "removeObject()", remove_only is misleading!
 	 */
 	void deleteObject(Object* object, bool remove_only);
+
+	/**
+	 * Relinquish object ownership. Searches map parts and returns the object found.
+	 */
+	Object* releaseObject(Object* object);
 	
 	/**
 	 * Marks the objects as "dirty", i.e. as having unsaved changes.
