@@ -2716,7 +2716,7 @@ void MapEditorController::switchSymbolClicked()
 		map->clearObjectSelection(false);
 		for (auto object : old_objects)
 		{
-			map->deleteObject(object, true);
+			map->releaseObject(object);
 		}
 		for (auto object : new_objects)
 		{
@@ -3140,7 +3140,7 @@ void MapEditorController::connectPathsClicked()
 		for (auto object : deleted_objects)
 		{
 			map->removeObjectFromSelection(object, false);
-			map->getCurrentPart()->deleteObject(object, false);
+			map->getCurrentPart()->deleteObject(object);
 		}
 	}
 	
@@ -3726,8 +3726,7 @@ void MapEditorController::removeMapPart()
 			{
 				--i;
 				auto object = part->getObject(i);
-				add_step->addObject(i, object);
-				part->deleteObject(object, true);
+				add_step->addObject(i, part->releaseObject(object));
 			}
 			while (i > 0);
 			

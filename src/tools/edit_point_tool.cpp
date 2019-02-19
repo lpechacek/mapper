@@ -250,8 +250,7 @@ void EditPointTool::clickPress()
 						auto part = map()->getCurrentPart();
 						int index = part->findObjectIndex(hover_object);
 						Q_ASSERT(index >= 0);
-						undo_step->addObject(index, hover_object);
-						map()->deleteObject(hover_object, true);
+						undo_step->addObject(index, map()->releaseObject(hover_object));
 						map()->push(undo_step);
 						map()->setObjectsDirty();
 						map()->emitSelectionEdited();
@@ -681,10 +680,8 @@ void EditPointTool::finishEditing()
 			int index = part->findObjectIndex(text_object);
 			if (index >= 0)
 			{
-				part->deleteObject(index, true);
-				
 				auto undo_step = new AddObjectsUndoStep(map);
-				undo_step->addObject(index, text_object);
+				undo_step->addObject(index, part->releaseObject(text_object));
 				map->push(undo_step);
 				map->setObjectsDirty();
 			}

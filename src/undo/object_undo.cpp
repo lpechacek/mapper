@@ -317,8 +317,7 @@ UndoStep* DeleteObjectsUndoStep::undo()
 	int size = (int)modified_objects.size();
 	for (int i = 0; i < size; ++i)
 	{
-		undo_step->addObject(modified_objects[i], part->getObject(modified_objects[i]));
-		part->deleteObject(modified_objects[i], true);
+		undo_step->addObject(modified_objects[i], part->releaseObject(modified_objects[i]));
 	}
 	
 	return undo_step;
@@ -390,7 +389,7 @@ void AddObjectsUndoStep::removeContainedObjects(bool emit_selection_changed)
 			map->removeObjectFromSelection(objects[i], false);
 			object_deselected = true;
 		}
-		part->deleteObject(objects[i], true);
+		part->releaseObject(objects[i]);
 		map->setObjectsDirty();
 	}
 	if (object_deselected && emit_selection_changed)
@@ -464,11 +463,10 @@ UndoStep* SwitchPartUndoStep::undo()
 	if (reverse)
 	{
 		std::for_each(begin(modified_objects), end(modified_objects), [this, source, target](auto i) {
-			auto object = target->getObject(i);
-			if (map->getCurrentPart() == target && map->isObjectSelected(object))
-				map->removeObjectFromSelection(object, false);
-			target->deleteObject(i, true);
-			source->addObject(object);
+			auto object_ptr = target->releaseObject(i);
+			if (map->getCurrentPart() == target && map->isObjectSelected(object_ptr))
+				map->removeObjectFromSelection(object_ptr, false);
+			source->addObject(object_ptr);
 		});
 	}
 	else
@@ -477,11 +475,10 @@ UndoStep* SwitchPartUndoStep::undo()
 		auto i = source->getNumObjects();
 		std::for_each(modified_objects.rbegin(), modified_objects.rend(), [this, source, target, &i](auto j) {
 			--i;
-			auto object = source->getObject(i);
-			if (map->getCurrentPart() == source && map->isObjectSelected(object))
-				map->removeObjectFromSelection(object, false);
-			source->deleteObject(i, true);
-			target->addObject(object, j);
+			auto object_ptr = source->releaseObject(i);
+			if (map->getCurrentPart() == source && map->isObjectSelected(object_ptr))
+				map->removeObjectFromSelection(object_ptr, false);
+			target->addObject(object_ptr, j);
 		});
 	}
 	
