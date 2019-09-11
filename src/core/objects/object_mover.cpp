@@ -26,6 +26,7 @@
 
 #include "core/objects/object.h"
 #include "core/objects/text_object.h"
+#include "core/symbols/line_symbol.h"
 #include "core/symbols/symbol.h"
 #include "core/symbols/text_symbol.h"
 
@@ -165,11 +166,18 @@ void ObjectMover::move(qint32 dx, qint32 dy, HandleOpMode move_opposite_handles)
 		
 		MapCoord control = constraint.object->getCoordinate(constraint.opposite_handle_index);
 
+		// Dash point flag setting for corner points
+		const auto anchor_is_corner = forms_a_corner(anchor_point, moved_handle, control, corner_tolerance);
+		const auto object_symbol = constraint.object->getSymbol();
+		if (object_symbol->getType() == Symbol::Line
+		    && object_symbol->asLine()->isDashed() || object_symbol->asLine()->getMidSymbol())
+				constraint.object->getCoordinateRef(constraint.curve_anchor_index).setDashPoint(anchor_is_corner);
+
 		// Check conditions for "corner point click-in" operation
 		if (move_opposite_handles == HandleOpMode::Click
 			&& constraint.anchor_is_corner)
 		{
-			if (forms_a_corner(anchor_point, moved_handle, control, corner_tolerance))
+			if (anchor_is_corner)
 				break; // still is a corner point -> refrain from moving opposite handle
 			else
 				constraint.anchor_is_corner = false;
