@@ -223,7 +223,11 @@ void DrawCircleTool::finishDrawing()
 	second_point_set = false;
 	updateStatusText();
 	
-	DrawLineAndAreaTool::finishDrawing();
+	// Enforce non-zero diameter
+	if (circle_start_pos_map != opposite_pos_map)   
+		DrawLineAndAreaTool::finishDrawing();  
+	else    
+		DrawLineAndAreaTool::abortDrawing();
 	// Do not add stuff here as the tool might get deleted in DrawLineAndAreaTool::finishDrawing()!
 }
 void DrawCircleTool::abortDrawing()
