@@ -240,7 +240,8 @@ void DrawLineAndAreaTool::finishDrawing(PathObject* append_to_object)
 	if (preview_path)
 		renderables->removeRenderablesOfObject(preview_path, false);
 	
-	if (preview_path && !is_helper_tool)
+	if (preview_path && !is_helper_tool && !preview_path->parts().empty()
+	    && !preview_path->parts().back().empty())
 	{
 		Q_ASSERT(drawing_symbol);
 		preview_path->setSymbol(drawing_symbol, true);
