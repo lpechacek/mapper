@@ -249,15 +249,6 @@ void mainForm::afterLoadImage()
 	}
 }
 
-//! Simple About dialog.
-void mainForm::aboutDialog()
-{
-	QMessageBox::about(this, tr("About"),
-					   trUtf8("<h3>COntour VEctorizer</h3><br />"
-							  "Author: Libor Pecháček<br />"
-							  "License: GPL"));
-}
-
 /*! Return color randomly created from image pixels.  It takes 5 scanlines and
  * makes an average color of its pixels. */
 QRgb mainForm::getColorFromImage(const QImage& image)

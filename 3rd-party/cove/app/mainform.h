@@ -78,7 +78,6 @@ protected:
 	QUndoStack* bwBitmapUndo {};
 	std::vector<QPushButton*> colorButtons;
 	Settings settings;
-	static const int MESSAGESHOWDELAY;
 
 	bool performMorphologicalOperation(Vectorizer::MorphologicalOperation mo);
 	void clearColorsTab();
@@ -97,7 +96,6 @@ public:
 	std::vector<bool> getSelectedColors();
 
 public slots:
-	void aboutDialog();
 	void setInitialColors(bool on);
 	void colorButtonToggled(bool on);
 
