@@ -67,7 +67,7 @@ public:
 	Ui::mainForm ui;
 
 protected:
-	std::unique_ptr<Vectorizer> vectorizerApp;
+	Vectorizer vectorizerApp;
 	OpenOrienteering::Map* ooMap;
 	OpenOrienteering::Template* ooTempl;
 	QString imageFileName;

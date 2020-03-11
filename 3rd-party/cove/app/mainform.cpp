@@ -161,8 +161,6 @@ mainForm::mainForm(QWidget* parent, OpenOrienteering::Map* map,
 {
 	ui.setupUi(this);
 
-	vectorizerApp = nullptr;
-
 	setTabEnabled(ui.imageTab, true);
 	setTabEnabled(ui.thinningTab, false);
 	setTabEnabled(ui.colorsTab, false);
@@ -277,53 +275,53 @@ QRgb mainForm::getColorFromImage(const QImage& image)
 void mainForm::on_runClassificationButton_clicked()
 {
 	ui.runClassificationButton->setEnabled(false);
-	vectorizerApp = std::make_unique<Vectorizer>(imageBitmap);
+	vectorizerApp = Vectorizer(imageBitmap);
 	UIProgressDialog progressDialog(tr("Colors classification in progress"),
 	                                tr("Cancel"), this);
 	auto totalProgress = Concurrency::TransformedProgress{progressDialog, 0.5};
 	switch (settings.getInt("learnMethod"))
 	{
 	case 0:
-		vectorizerApp->setClassificationMethod(Vectorizer::KOHONEN_CLASSIC);
+		vectorizerApp.setClassificationMethod(Vectorizer::KOHONEN_CLASSIC);
 		break;
 	case 1:
-		vectorizerApp->setClassificationMethod(Vectorizer::KOHONEN_BATCH);
+		vectorizerApp.setClassificationMethod(Vectorizer::KOHONEN_BATCH);
 		break;
 	}
-	vectorizerApp->setP(settings.getDouble("p"));
+	vectorizerApp.setP(settings.getDouble("p"));
 	switch (settings.getInt("colorSpace"))
 	{
 	case 0:
-		vectorizerApp->setColorSpace(Vectorizer::COLSPC_RGB);
+		vectorizerApp.setColorSpace(Vectorizer::COLSPC_RGB);
 		break;
 	case 1:
-		vectorizerApp->setColorSpace(Vectorizer::COLSPC_HSV);
+		vectorizerApp.setColorSpace(Vectorizer::COLSPC_HSV);
 		break;
 	}
 	switch (settings.getInt("alphaStrategy"))
 	{
 	case 0:
-		vectorizerApp->setAlphaStrategy(Vectorizer::ALPHA_CLASSIC);
+		vectorizerApp.setAlphaStrategy(Vectorizer::ALPHA_CLASSIC);
 		break;
 	case 1:
-		vectorizerApp->setAlphaStrategy(Vectorizer::ALPHA_NEUQUANT);
+		vectorizerApp.setAlphaStrategy(Vectorizer::ALPHA_NEUQUANT);
 		break;
 	}
 	switch (settings.getInt("patternStrategy"))
 	{
 	case 0:
-		vectorizerApp->setPatternStrategy(Vectorizer::PATTERN_RANDOM);
+		vectorizerApp.setPatternStrategy(Vectorizer::PATTERN_RANDOM);
 		break;
 	case 1:
-		vectorizerApp->setPatternStrategy(Vectorizer::PATTERN_NEUQUANT);
+		vectorizerApp.setPatternStrategy(Vectorizer::PATTERN_NEUQUANT);
 		break;
 	}
-	vectorizerApp->setInitAlpha(settings.getDouble("initAlpha"));
-	vectorizerApp->setMinAlpha(settings.getDouble("minAlpha"));
-	vectorizerApp->setQ(settings.getDouble("q"));
-	vectorizerApp->setE(settings.getInt("E"));
+	vectorizerApp.setInitAlpha(settings.getDouble("initAlpha"));
+	vectorizerApp.setMinAlpha(settings.getDouble("minAlpha"));
+	vectorizerApp.setQ(settings.getDouble("q"));
+	vectorizerApp.setE(settings.getInt("E"));
 	int nColors = settings.getInt("nColors");
-	vectorizerApp->setNumberOfColors(nColors);
+	vectorizerApp.setNumberOfColors(nColors);
 	std::vector<QRgb> colors;
 	switch (settings.getInt("initColorsSource"))
 	{
@@ -338,13 +336,13 @@ void mainForm::on_runClassificationButton_clicked()
 		colors = settings.getInitColors();
 		break;
 	}
-	vectorizerApp->setInitColors(colors);
+	vectorizerApp.setInitColors(colors);
 	auto classification = [](Vectorizer* v, ProgressObserver& o) -> bool {
 		return v->performClassification(&o);
 	};
-	Concurrency::process<bool>(&totalProgress, classification, vectorizerApp.get());
+	Concurrency::process<bool>(&totalProgress, classification, &vectorizerApp);
 
-	auto colorsFound = vectorizerApp->getClassifiedColors();
+	auto colorsFound = vectorizerApp.getClassifiedColors();
 	setColorButtonsGroup(colorsFound);
 	
 	// in case there are some colors (learning was not aborted)
@@ -353,7 +351,7 @@ void mainForm::on_runClassificationButton_clicked()
 		double quality;
 		totalProgress.offset = 50.0;
 		QImage newClassifiedBitmap =
-			vectorizerApp->getClassifiedImage(&quality, &totalProgress);
+			vectorizerApp.getClassifiedImage(&quality, &totalProgress);
 		if (!newClassifiedBitmap.isNull())
 		{
 			classifiedBitmap = newClassifiedBitmap;
@@ -426,7 +424,7 @@ void mainForm::setColorButtonsGroup(std::vector<QRgb> colors)
 // i.e. sets current colors as initial.
 void mainForm::setInitialColors(bool /*on*/)
 {
-	auto colorsFound = vectorizerApp->getClassifiedColors();
+	auto colorsFound = vectorizerApp.getClassifiedColors();
 	auto n = colorsFound.size();
 	if (!n) return;
 	auto comments = std::vector<QString>(n);
@@ -439,7 +437,7 @@ void mainForm::setInitialColors(bool /*on*/)
 void mainForm::colorButtonToggled(bool /*on*/)
 {
 	int sels = 0;
-	auto colorsFound = vectorizerApp->getClassifiedColors();
+	auto colorsFound = vectorizerApp.getClassifiedColors();
 	auto selectedColors = getSelectedColors();
 	for (std::size_t i = 0; i < colorButtons.size(); i++)
 	{
@@ -454,7 +452,7 @@ void mainForm::colorButtonToggled(bool /*on*/)
 //! Returns bool array indicating which colors are selected by color buttons.
 std::vector<bool> mainForm::getSelectedColors()
 {
-	auto n = vectorizerApp->getClassifiedColors().size();
+	auto n = vectorizerApp.getClassifiedColors().size();
 	// do not allow different number of colors and buttons
 	Q_ASSERT(colorButtons.size() >= n);
 
@@ -485,7 +483,7 @@ void mainForm::on_mainTabWidget_currentChanged(int tabindex)
 	auto selectedColors = getSelectedColors();
 	UIProgressDialog progressDialog(tr("Creating B/W image"), tr("Cancel"), this);
 	QImage newBWBitmap =
-		vectorizerApp->getBWImage(selectedColors, &progressDialog);
+		vectorizerApp.getBWImage(selectedColors, &progressDialog);
 	if (newBWBitmap.isNull())
 	{
 		// no BW image
