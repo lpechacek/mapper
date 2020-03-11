@@ -624,7 +624,7 @@ void mainForm::on_classificationOptionsButton_clicked()
 void mainForm::on_initialColorsButton_clicked()
 {
 	ColorsEditForm* optionsDialog = new ColorsEditForm(this);
-	int settingsNColors = settings.getInt("nColors");
+	unsigned settingsNColors = settings.getInt("nColors"); // narrowing conversion intended
 	std::vector<QString> comments;
 	auto colors = settings.getInitColors(comments);
 	auto nColors = colors.size();
@@ -782,7 +782,7 @@ void mainForm::on_bwImageSaveButton_clicked()
 
 	QString selectedFilter("PNG (*.png)");
 	QString newfilename = QFileDialog::getSaveFileName(
-		this, QString::null, QFileInfo(imageFileName).dir().path(), filter,
+		this, QString(), QFileInfo(imageFileName).dir().path(), filter,
 		&selectedFilter);
 
 	if (!newfilename.isEmpty())
