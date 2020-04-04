@@ -33,6 +33,7 @@
 #include <QVariant>
 
 #include "core/map_coord.h"
+#include "core/map_view.h"
 #include "tools/edit_tool.h"
 
 class QAction;
@@ -104,6 +105,7 @@ protected:
 	void objectSelectionChangedImpl() override;
 	int updateDirtyRectImpl(QRectF& rect) override;
 	void drawImpl(QPainter* painter, MapWidget* widget) override;
+	void applyViewChangesImpl(MapView::ChangeFlags change) override;
 	
 	/** In addition to the base class implementation, updates the status text. */
 	void updatePreviewObjects() override;

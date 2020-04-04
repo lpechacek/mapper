@@ -429,6 +429,10 @@ int EditLineTool::updateDirtyRectImpl(QRectF& rect)
 	
 	selection_extent = QRectF();
 	map()->includeSelectionRect(selection_extent);
+
+	const auto click_tolerance = .001 * cur_map_widget->getMapView()->pixelToLength(clickTolerance());
+	selection_extent.adjust(-click_tolerance, -click_tolerance,
+	                        click_tolerance, click_tolerance);
 	
 	rectInclude(rect, selection_extent);
 	int pixel_border = show_object_points ? pointHandles().displayRadius() : 1;
@@ -486,6 +490,7 @@ void EditLineTool::drawImpl(QPainter* painter, MapWidget* widget)
 	if (isDragging() && box_selection)
 		drawSelectionBox(painter, widget, click_pos_map, cur_pos_map);
 }
+
 
 void EditLineTool::updatePreviewObjects()
 {
@@ -622,6 +627,13 @@ void EditLineTool::updateHoverState(const MapCoordF& cursor_pos)
 		effective_start_drag_distance = (hover_state == OverNothing) ? startDragDistance() : 0;
 		updateDirtyRect();
 	}
+}
+
+
+void EditLineTool::applyViewChangesImpl(MapView::ChangeFlags change)
+{
+	if (change == MapView::ZoomChange)
+		updateDirtyRect(); // the bounding rectangle extent changes
 }
 
 

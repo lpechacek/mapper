@@ -575,6 +575,10 @@ int EditPointTool::updateDirtyRectImpl(QRectF& rect)
 	
 	selection_extent = QRectF();
 	map()->includeSelectionRect(selection_extent);
+
+	const auto click_tolerance = .001 * cur_map_widget->getMapView()->pixelToLength(clickTolerance());
+	selection_extent.adjust(-click_tolerance, -click_tolerance,
+	                        click_tolerance, click_tolerance);
 	
 	rectInclude(rect, selection_extent);
 	int pixel_border = show_object_points ? pointHandles().displayRadius() : 1;
@@ -957,6 +961,13 @@ bool EditPointTool::moveOppositeHandle() const
 {
 	return !(active_modifiers & Qt::ShiftModifier)
 	       && hoveringOverCurveHandle();
+}
+
+
+void EditPointTool::applyViewChangesImpl(MapView::ChangeFlags change)
+{
+	if (change == MapView::ZoomChange)
+		updateDirtyRect(); // the bounding rectangle extent changes
 }
 
 

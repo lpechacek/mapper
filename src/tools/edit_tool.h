@@ -34,6 +34,7 @@
 #include <QString>
 
 #include "core/map_coord.h"
+#include "core/map_view.h"
 #include "tools/tool.h"
 #include "tools/tool_base.h"
 
@@ -145,9 +146,27 @@ protected:
 	void drawBoundingPath(QPainter* painter, MapWidget* widget, const std::vector<QPointF>& bounding_path, const QRgb& color);
 	
 	/**
+	 * Rendering of some of the editor graphic elements may depend on
+	 * MapView settings. This method is the place where to process
+	 * the changes.
+	 *
+	 * @param change type of change as emitted by MapView
+	 */
+	virtual void applyViewChangesImpl(MapView::ChangeFlags change) = 0;
+
+	/**
 	 * An utility implementing object selection logic.
 	 */
 	QScopedPointer<ObjectSelector> object_selector;
+
+public slots:
+	/**
+	 * This slot forwards viewChange notifications from MapView to the
+	 * sub-class specific implementation.
+	 * 
+	 * @param change 
+	 */
+	void applyViewChanges(OpenOrienteering::MapView::ChangeFlags change);
 };
 
 
