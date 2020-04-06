@@ -159,6 +159,8 @@ void EditPointTool::mouseMove()
 	// For texts, decide whether to show the beam cursor
 	if (hoveringOverSingleText())
 		cur_map_widget->setCursor(QCursor(Qt::IBeamCursor));
+	if (hover_state == OverArea || hover_state == OverPathEdge)
+		cur_map_widget->setCursor(QCursor(Qt::SizeAllCursor));
 	else
 		cur_map_widget->setCursor(getCursor());
 }
@@ -788,7 +790,7 @@ void EditPointTool::updateHoverState(const MapCoordF& cursor_pos)
 	}
 	else if (!map()->selectedObjects().empty())
 	{
-		if (map()->selectedObjects().size() <= max_objects_for_handle_display)
+		if (true || map()->selectedObjects().size() <= max_objects_for_handle_display)
 		{
 			// Try to find object node.
 			auto best_distance_sq = std::numeric_limits<double>::max();
@@ -835,6 +837,13 @@ void EditPointTool::updateHoverState(const MapCoordF& cursor_pos)
 							best_distance_sq = distance_sq;
 							handle_offset    = path_coord.pos - cursor_pos;
 						}
+						else if (path->getSymbol()->getType() == Symbol::Area &&
+						         path->isPointInsideArea(cursor_pos))
+						{
+							new_hover_state  = OverArea;
+							new_hover_object = path;
+							new_hover_point  = no_point;
+						}
 					}
 				}
 			}
@@ -863,7 +872,9 @@ void EditPointTool::updateHoverState(const MapCoordF& cursor_pos)
 		updateDirtyRect();
 	}
 	
-	Q_ASSERT((hover_state.testFlag(OverObjectNode) || hover_state.testFlag(OverPathEdge)) == bool(hover_object));
+	Q_ASSERT((hover_state.testFlag(OverObjectNode)
+	          || hover_state.testFlag(OverPathEdge)
+	          || hover_state.testFlag(OverArea)) == bool(hover_object));
 }
 
 void EditPointTool::setupAngleHelperFromHoverObject()
@@ -927,7 +938,8 @@ void EditPointTool::startEditingSetup()
 		}
 		angle_helper->setCenter(click_pos_map);
 	}
-	else if (hover_state.testFlag(OverFrame))
+	else if (hover_state.testFlag(OverFrame) || hover_state.testFlag(OverPathEdge)
+	         || hover_state.testFlag((OverArea)))
 	{
 		for (auto object : editedObjects())
 			object_mover->addObject(object);

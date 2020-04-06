@@ -68,6 +68,7 @@ public:
 		OverFrame        = 1,
 		OverObjectNode   = 2,
 		OverPathEdge     = 4,
+		OverArea         = 8,
 	};
 	Q_DECLARE_FLAGS(HoverState, HoverFlag)
 	
