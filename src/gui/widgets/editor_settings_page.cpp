@@ -48,6 +48,8 @@ EditorSettingsPage::EditorSettingsPage(QWidget* parent)
 	{
 		button_size = Util::SpinBox::create(1, 3.0, 26.0, tr("mm", "millimeters"), 0.1);
 		layout->addRow(tr("Action button size:"), button_size);
+		drag_start_distance = Util::SpinBox::create(1, 3000, tr("px", "pixels"));
+		layout->addRow(tr("Drag start distance:"), drag_start_distance);
 	}
 
 	icon_size = Util::SpinBox::create(1, 25, tr("mm", "millimeters"));
@@ -129,6 +131,8 @@ void EditorSettingsPage::apply()
 {
 	if (button_size != nullptr)
 		setSetting(Settings::ActionGridBar_ButtonSizeMM, button_size->value());
+	if (drag_start_distance)
+		setSetting(Settings::General_StartDragDistance, drag_start_distance->value());
 	setSetting(Settings::SymbolWidget_IconSizeMM, icon_size->value());
 	setSetting(Settings::MapDisplay_Antialiasing, antialiasing->isChecked());
 	setSetting(Settings::MapDisplay_TextAntialiasing, text_antialiasing->isChecked());
@@ -154,6 +158,8 @@ void EditorSettingsPage::updateWidgets()
 {
 	if (button_size != nullptr)
 		button_size->setValue(getSetting(Settings::ActionGridBar_ButtonSizeMM).toDouble());
+	if (drag_start_distance)
+		drag_start_distance->setValue(getSetting(Settings::General_StartDragDistance).toDouble());
 	icon_size->setValue(getSetting(Settings::SymbolWidget_IconSizeMM).toInt());
 	antialiasing->setChecked(getSetting(Settings::MapDisplay_Antialiasing).toBool());
 	text_antialiasing->setEnabled(antialiasing->isChecked());
