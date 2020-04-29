@@ -1575,12 +1575,11 @@ void MapEditorController::createMobileGUI()
 	
 	bottom_action_bar->setToUseOverflowActionFrom(top_action_bar);
 	
-	top_action_bar->setParent(map_widget);
-	
 	auto* container_widget = new QWidget();
 	auto* layout = new QVBoxLayout();
 	layout->setMargin(0);
 	layout->setSpacing(0);
+	layout->addWidget(top_action_bar);
 	layout->addWidget(map_widget, 1);
 	layout->addWidget(bottom_action_bar);
 	container_widget->setLayout(layout);
