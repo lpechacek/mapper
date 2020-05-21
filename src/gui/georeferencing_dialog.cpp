@@ -651,10 +651,12 @@ void GeoreferencingDialog::crsEdited()
 		Q_ASSERT(crs_template);
 		georef_copy.setProjectedCRS(crs_template->id(), spec, crs_selector->parameters());
 		georef_copy.setState(Georeferencing::Normal); // Allow invalid spec
+		auto const point_update_mode = QFlags<Georeferencing::UpdateMode>().setFlag(Georeferencing::UpdateGrivation, !grivation_locked)
+		                         .setFlag(Georeferencing::UpdateScale, !scale_factor_locked);
 		if (keep_geographic_radio->isChecked())
-			georef_copy.setGeographicRefPoint(georef->getGeographicRefPoint(), !grivation_locked, !scale_factor_locked);
+			georef_copy.setGeographicRefPoint(georef->getGeographicRefPoint(), point_update_mode);
 		else
-			georef_copy.setProjectedRefPoint(georef->getProjectedRefPoint(), !grivation_locked, !scale_factor_locked);
+			georef_copy.setProjectedRefPoint(georef->getProjectedRefPoint(), point_update_mode);
 		break;
 	}
 	
@@ -708,7 +710,10 @@ void GeoreferencingDialog::eastingNorthingEdited()
 	const QSignalBlocker block1(keep_geographic_radio), block2(keep_projected_radio);
 	double easting   = easting_edit->value();
 	double northing  = northing_edit->value();
-	georef->setProjectedRefPoint(QPointF(easting, northing), !grivation_locked, !scale_factor_locked);
+	georef->setProjectedRefPoint(QPointF(easting, northing),
+	                             QFlags<Georeferencing::UpdateMode>()
+	                             .setFlag(Georeferencing::UpdateGrivation, !grivation_locked)
+	                             .setFlag(Georeferencing::UpdateScale, !scale_factor_locked));
 	keep_projected_radio->setChecked(true);
 	reset_button->setEnabled(true);
 }
@@ -718,7 +723,10 @@ void GeoreferencingDialog::latLonEdited()
 	const QSignalBlocker block1(keep_geographic_radio), block2(keep_projected_radio);
 	double latitude  = lat_edit->value();
 	double longitude = lon_edit->value();
-	georef->setGeographicRefPoint(LatLon(latitude, longitude), !grivation_locked, !scale_factor_locked);
+	georef->setGeographicRefPoint(LatLon(latitude, longitude),
+	                              QFlags<Georeferencing::UpdateMode>()
+	                              .setFlag(Georeferencing::UpdateGrivation, !grivation_locked)
+	                              .setFlag(Georeferencing::UpdateScale, !scale_factor_locked));
 	keep_geographic_radio->setChecked(true);
 	reset_button->setEnabled(true);
 }

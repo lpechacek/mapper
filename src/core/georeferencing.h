@@ -122,6 +122,13 @@ public:
 		Normal = 2
 	};
 	
+	enum UpdateMode
+	{
+		NoUpdate        = 0x00,
+		UpdateGrivation = 0x01,
+		UpdateScale     = 0x02
+	};
+	Q_DECLARE_FLAGS(UpdateModes, UpdateMode)
 	
 	/**
 	 * A shared PROJ specification of a WGS84 geographic CRS.
@@ -384,7 +391,7 @@ public:
 	 * point, the convergence, the grivation, the transformations, and the
 	 * scale factors.
 	 */
-	void setProjectedRefPoint(const QPointF& point, bool update_grivation = true, bool update_scale_factor = true);
+	void setProjectedRefPoint(const QPointF& point, UpdateModes update_mode = QFlags<Georeferencing::UpdateMode>({Georeferencing::UpdateGrivation, Georeferencing::UpdateScale}));
 	
 	
 	/**
@@ -453,7 +460,7 @@ public:
 	 * point, the convergence, the grivation, the transformations, and the
 	 * scale factors.
 	 */
-	void setGeographicRefPoint(LatLon lat_lon, bool update_grivation = true, bool update_scale_factor = true);
+	void setGeographicRefPoint(LatLon lat_lon, UpdateModes update_mode = QFlags<Georeferencing::UpdateMode>({Georeferencing::UpdateGrivation, Georeferencing::UpdateScale}));
 	
 	
 	/** 
@@ -681,6 +688,8 @@ private:
 	LatLon geographic_ref_point;
 	
 };
+
+Q_DECLARE_OPERATORS_FOR_FLAGS(Georeferencing::UpdateModes)
 
 /**
  * Dumps a Georeferencing to the debug output.
