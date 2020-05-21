@@ -618,6 +618,7 @@ private:
 	bool is_rotatable = false;
 };
 
+Q_DECLARE_OPERATORS_FOR_FLAGS(Symbol::TypeCombination)
 
 
 /**

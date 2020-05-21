@@ -294,6 +294,7 @@ private:
 	Features format_features;
 };
 
+Q_DECLARE_OPERATORS_FOR_FLAGS(FileFormat::Features)
 
 // ### FileFormatException inline and header code ###
 

@@ -1559,6 +1559,7 @@ private:
 	static CombinedSymbol* covering_combined_line;
 };
 
+Q_DECLARE_OPERATORS_FOR_FLAGS(Map::ImportMode)
 
 
 // ### Map inline code ###

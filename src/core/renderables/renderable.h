@@ -106,7 +106,7 @@ public:
 	bool testFlag(const Option flag) const;
 };
 
-
+Q_DECLARE_OPERATORS_FOR_FLAGS(RenderConfig::Options)
 
 /**
  * A Renderable is a graphical item with a simple shape and a single color.

@@ -423,6 +423,7 @@ private:
 	bool template_loading_blocked;
 };
 
+Q_DECLARE_OPERATORS_FOR_FLAGS(MapView::ChangeFlags)
 
 
 // ### TemplateVisibility inline code ###
