@@ -72,6 +72,7 @@
 #include <QPainter>
 #include <QPixmap>
 #include <QPoint>
+#include <QPointF>
 #include <QPushButton>
 #include <QRect>
 #include <QRectF>
@@ -79,6 +80,7 @@
 #include <QSignalBlocker>
 #include <QSignalMapper>
 #include <QSize>
+#include <QSizeF>
 #include <QSizeGrip> // IWYU pragma: keep
 #include <QSizePolicy>
 #include <QSplitter>
@@ -957,6 +959,7 @@ void MapEditorController::createActions()
 	pan_act = newToolAction("panmap", tr("Pan"), this, SLOT(pan()), "move.png", QString{}, "view_menu.html");
 	move_to_gps_pos_act = newAction("movegps", tr("Move to my location"), this, SLOT(moveToGpsPos()), "move-to-gps.png", QString{}, "view_menu.html");
 	move_to_gps_pos_act->setEnabled(false);
+	tourist_mode_act = newCheckAction("touristmode", tr("Auto-pan map to keep current location in view"), this, SLOT(touristModeClicked(bool)), "gnss-tourist-mode.png", QString{}, "view_menu.html");
 	zoom_in_act = newAction("zoomin", tr("Zoom in"), this, SLOT(zoomIn()), "view-zoom-in.png", QString{}, "view_menu.html");
 	zoom_out_act = newAction("zoomout", tr("Zoom out"), this, SLOT(zoomOut()), "view-zoom-out.png", QString{}, "view_menu.html");
 	show_all_act = newAction("showall", tr("Show whole map"), this, SLOT(showWholeMap()), "view-show-all.png", QString{}, "view_menu.html");
@@ -1476,6 +1479,10 @@ void MapEditorController::createMobileGUI()
 	zoom_out_button->setMenu(mobile_zoom_out_menu);
 
 	bottom_action_bar->addAction(move_to_gps_pos_act, 1, col++);
+	auto* move_to_gps_pos_button = bottom_action_bar->getButtonForAction(move_to_gps_pos_act);
+	auto* mobile_move_to_gps_pos_menu = new QMenu(move_to_gps_pos_button);
+	mobile_move_to_gps_pos_menu->addAction(tourist_mode_act);
+	move_to_gps_pos_button->setMenu(mobile_move_to_gps_pos_menu);
 	
 	bottom_action_bar->addAction(hatch_areas_view_act, 0, col);
 	bottom_action_bar->addAction(baseline_view_act, 1, col++);	
@@ -1935,6 +1942,28 @@ void MapEditorController::moveToGpsPos()
 	auto cur_gps_pos = gps_display->getLatestGPSCoord();
 	main_view->setCenter({ cur_gps_pos.x(), cur_gps_pos.y() });
 	gps_display->startBlinking(3);
+}
+
+void MapEditorController::touristModeClicked(bool enable)
+{
+	if (enable)
+		connect(gps_display, SIGNAL(mapPositionUpdated(OpenOrienteering::MapCoordF,float)),
+		        this, SLOT(touristModeHandler(OpenOrienteering::MapCoordF,float)));
+	else
+		disconnect(gps_display, SIGNAL(mapPositionUpdated(OpenOrienteering::MapCoordF,float)),
+		           this, SLOT(touristModeHandler(OpenOrienteering::MapCoordF,float)));
+}
+
+void MapEditorController::touristModeHandler(MapCoordF coords, float accuracy)
+{
+	Q_UNUSED(accuracy);
+	// By making sure that a rectangle centered around the current location 
+	// is visible, the GNSS cursor is always in view and can wander
+	// along the center of the screen.
+	auto const map_view_rect = main_view->calculateViewedRect(map_widget->viewportToView(map_widget->rect()));
+	auto location_rect = QRectF(QPointF(), map_view_rect.size() * 0.5);
+	location_rect.moveCenter(coords);
+	map_widget->ensureVisibilityOfRect(location_rect, MapWidget::ContinuousZoom);
 }
 
 void MapEditorController::zoomIn()
