@@ -61,6 +61,7 @@ class GPSTemporaryMarkers;
 class GPSTrackRecorder;
 class GeoreferencingDialog;
 class MainWindow;
+class MapCoordF;
 class MapEditorActivity;
 class MapEditorTool;
 class MapFindFeature;
@@ -292,6 +293,11 @@ public slots:
 	void pan();
 	/** Moves view to GPS position. */
 	void moveToGpsPos();
+	/** Toggle tourist mode - move view to keep current geographic location
+	 *  within the view. */
+	void touristModeClicked(bool enable);
+	/** Tourist mode position update handler. Recevies updates from GPSDisplay. */
+	void touristModeHandler(OpenOrienteering::MapCoordF coords, float accuracy);
 	/** Zooms in in the current map widget. */
 	void zoomIn();
 	/** Zooms out in the current map widget. */
@@ -710,6 +716,7 @@ private:
 	
 	QAction* pan_act;
 	QAction* move_to_gps_pos_act;
+	QAction* tourist_mode_act;
 	QAction* zoom_in_act;
 	QAction* zoom_out_act;
 	QAction* show_all_act;

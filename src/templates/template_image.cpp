@@ -28,6 +28,7 @@
 #include <Qt>
 #include <QtGlobal>
 #include <QtMath>
+#include <QBrush>
 #include <QByteArray>
 #include <QDialog>
 #include <QFileInfo>  // IWYU pragma: keep
@@ -235,6 +236,8 @@ bool TemplateImage::postLoadConfiguration(QWidget* dialog_parent, bool& out_cent
 				calculateGeoreferencing();
 				auto const center_pixel = MapCoordF(0.5 * (image.width() - 1), 0.5 * (image.height() - 1));
 				initial_georef.setProjectedRefPoint(georef->toProjectedCoords(center_pixel));
+				initial_georef.setCombinedScaleFactor(1.0);
+				initial_georef.setGrivation(0.0);
 			}
 			
 			GeoreferencingDialog dialog(dialog_parent, map, &initial_georef, false);
@@ -244,12 +247,12 @@ bool TemplateImage::postLoadConfiguration(QWidget* dialog_parent, bool& out_cent
 				dialog.setKeepGeographicRefCoords();
 			if (dialog.exec() == QDialog::Rejected)
 				continue;
-		}
-		
-		if (map->getGeoreferencing().getProjectedCRSSpec() == available_georef.effective.crs_spec)
-		{
-			// For convenience, skip CRS selection.
-			break;
+			
+			if (map->getGeoreferencing().getProjectedCRSSpec() == available_georef.effective.crs_spec)
+			{
+				// For convenience, skip CRS selection.
+				break;
+			}
 		}
 		
 		if (!map->getGeoreferencing().isLocal())
@@ -493,7 +496,7 @@ bool TemplateImage::isGeoreferencingUsable() const
 }
 
 
-void TemplateImage::drawOntoTemplateImpl(MapCoordF* coords, int num_coords, const QColor& color, qreal width)
+void TemplateImage::drawOntoTemplateImpl(MapCoordF* coords, int num_coords, const QColor& color, qreal width, bool filled)
 {
 	QPointF* points;
 	QRect radius_bbox;
@@ -574,8 +577,16 @@ void TemplateImage::drawOntoTemplateImpl(MapCoordF* coords, int num_coords, cons
 	pen.setJoinStyle(Qt::RoundJoin);
 	painter.setPen(pen);
 	painter.setRenderHint(QPainter::Antialiasing);
-	for (int i = 0; i < draw_iterations; ++ i)
-		painter.drawPolyline(points, num_coords);
+
+	if (filled)
+	{
+		painter.setBrush(QBrush(color));
+		for (int i = 0; i < draw_iterations; ++ i)
+			painter.drawPolygon(points, num_coords);
+	} else {
+		for (int i = 0; i < draw_iterations; ++ i)
+			painter.drawPolyline(points, num_coords);
+	}
 	
 	painter.end();
 	delete[] points;
