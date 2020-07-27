@@ -129,7 +129,7 @@ ActionGridBar* PaintOnTemplateTool::makeToolBar()
 	auto* color_button_group = new QButtonGroup(this);
 	
 	int count = 0;
-	static QColor const default_colors[8] = {
+	static QColor const default_colors[] = {
 	    qRgb(255,   0,   0),
 	    qRgb(255, 255,   0),
 	    qRgb(  0, 255,   0),
@@ -137,7 +137,6 @@ ActionGridBar* PaintOnTemplateTool::makeToolBar()
 	    qRgb(  0,   0, 255),
 	    qRgb(209,  92,   0),
 	    qRgb(  0,   0,   0),
-	    qRgb(255, 255, 255)
 	};
 	for (auto const& color: default_colors)
 	{
@@ -160,6 +159,16 @@ ActionGridBar* PaintOnTemplateTool::makeToolBar()
 		++count;
 	}
 	
+	auto* erase_action = new QAction(QIcon(QString::fromLatin1(":/images/eraser.png")),
+	                                ::OpenOrienteering::MapEditorController::tr("Erase"),
+	                                toolbar);
+	erase_action->setCheckable(true);
+	connect(erase_action, &QAction::triggered, this, [this](bool enabled) { erasing = enabled; });
+	toolbar->addAction(erase_action, count % 2, count / 2);
+	// de-select color when activating eraser
+	color_button_group->addButton(toolbar->getButtonForAction(erase_action));
+	count++;
+
 	auto* undo_action = new QAction(QIcon(QString::fromLatin1(":/images/undo.png")),
 	                                ::OpenOrienteering::MapEditorController::tr("Undo"),
 	                                toolbar);
@@ -237,7 +246,6 @@ bool PaintOnTemplateTool::mousePressEvent(QMouseEvent* event, const MapCoordF& m
 		coords.push_back(map_coord);
 		map_bbox = QRectF(map_coord.x(), map_coord.y(), 0, 0);
 		dragging = true;
-		erasing = (event->button() == Qt::RightButton) || (paint_color == qRgb(255, 255, 255));
 		return true;
 	}
 	
