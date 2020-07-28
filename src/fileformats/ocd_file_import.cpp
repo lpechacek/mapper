@@ -1536,6 +1536,7 @@ Symbol* OcdFileImport::importAreaSymbol(const Ocd::AreaSymbolV8& ocd_symbol)
 	setupBaseSymbol(symbol, ocd_symbol.base);
 	setupAreaSymbolCommon(
 	            symbol,
+	            ocd_symbol.base.flags & Ocd::SymbolRotatable,
 	            ocd_symbol.fill_on,
 	            ocd_symbol.common,
 	            ocd_symbol.data_size,
@@ -1551,6 +1552,7 @@ Symbol* OcdFileImport::importAreaSymbol(const S& ocd_symbol)
 	setupBaseSymbol(symbol, ocd_symbol.base);
 	setupAreaSymbolCommon(
 	            symbol,
+	            ocd_symbol.base.flags & Ocd::SymbolRotatable,
 	            ocd_symbol.common.fill_on_V9,
 	            ocd_symbol.common,
 	            ocd_symbol.data_size,
@@ -1578,7 +1580,7 @@ Symbol* OcdFileImport::importAreaSymbol(const S& ocd_symbol)
 	return combined;
 }
 
-void OcdFileImport::setupAreaSymbolCommon(OcdImportedAreaSymbol* symbol, bool fill_on, const Ocd::AreaSymbolCommonV8& ocd_symbol, std::size_t data_size, const Ocd::PointSymbolElementV8* elements)
+void OcdFileImport::setupAreaSymbolCommon(OcdImportedAreaSymbol* symbol, bool rotatable, bool fill_on, const Ocd::AreaSymbolCommonV8& ocd_symbol, std::size_t data_size, const Ocd::PointSymbolElementV8* elements)
 {
 	// Basic area symbol fields: minimum_area, color
 	symbol->minimum_area = 0;
@@ -1592,7 +1594,7 @@ void OcdFileImport::setupAreaSymbolCommon(OcdImportedAreaSymbol* symbol, bool fi
 		AreaSymbol::FillPattern pattern;
 		pattern.type = AreaSymbol::FillPattern::LinePattern;
 		pattern.angle = convertAngle(ocd_symbol.hatch_angle_1);
-		pattern.setRotatable(true);
+		pattern.setRotatable(rotatable);
 		pattern.line_spacing = convertLength(ocd_symbol.hatch_dist);
 		pattern.line_offset = 0;
 		pattern.line_width = convertLength(ocd_symbol.hatch_line_width);
@@ -1617,7 +1619,7 @@ void OcdFileImport::setupAreaSymbolCommon(OcdImportedAreaSymbol* symbol, bool fi
 		AreaSymbol::FillPattern pattern;
 		pattern.type = AreaSymbol::FillPattern::PointPattern;
 		pattern.angle = convertAngle(ocd_symbol.structure_angle);
-		pattern.setRotatable(true);
+		pattern.setRotatable(rotatable);
 		pattern.point_distance = convertLength(ocd_symbol.structure_width);
 		pattern.line_spacing = convertLength(ocd_symbol.structure_height);
 		pattern.line_offset = 0;
