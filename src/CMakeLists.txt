@@ -186,6 +186,7 @@ set(Mapper_Common_SRCS
   gui/widgets/mapper_proxystyle.cpp
   gui/widgets/measure_widget.cpp
   gui/widgets/pie_menu.cpp
+  gui/widgets/scribble_settings_page.cpp
   gui/widgets/segmented_button_layout.cpp
   gui/widgets/settings_page.cpp
   gui/widgets/symbol_dropdown.cpp

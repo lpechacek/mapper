@@ -22,12 +22,15 @@
 #ifndef OPENORIENTEERING_SETTINGS_H
 #define OPENORIENTEERING_SETTINGS_H
 
+#include <vector>
+
 #include <QtGlobal>
 #include <QHash>
 #include <QObject>
 #include <QString>
 #include <QVariant>
 
+class QColor;
 class QSettings;
 
 
@@ -72,6 +75,7 @@ public:
 		General_StartDragDistance,
 		HomeScreen_TipsVisible,
 		HomeScreen_CurrentTip,
+		ScribbleTool_Colors,
 		END_OF_SETTINGSENUM /* Don't add items below this line. */
 	};
 	
@@ -207,6 +211,8 @@ public:
 	 */
 	void setNmeaSerialPort(const QString& name);
 	
+	std::vector<QColor> scribbleColors() const;
+	void setScribbleColors(const std::vector<QColor>& new_colors);
 	
 signals:
 	void settingsChanged();

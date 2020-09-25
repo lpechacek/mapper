@@ -28,12 +28,15 @@
 #include <QApplication>
 #endif
 #include <QByteArray>
+#include <QColor>
 #include <QGuiApplication>
+#include <QLatin1Char>
 #include <QLatin1String>
 #include <QLocale>
 #include <QScreen>
 #include <QSettings>
 #include <QStringList>
+#include <QRgb>
 
 
 namespace OpenOrienteering {
@@ -161,6 +164,9 @@ Settings::Settings()
 	// Set antialiasing default depending on screen pixels per inch
 	registerSetting(MapDisplay_Antialiasing, "MapDisplay/antialiasing", Util::isAntialiasingRequired(getSetting(General_PixelsPerInch).toReal()));
 	
+	// Scribble (AKA Paint On Template) tool settings
+	registerSetting(ScribbleTool_Colors, "ScribbleTool/colors", QLatin1String("FF0000,FFFF00,00FF00,DB00D9,0000FF,D15C00,000000"));
+	                
 	QSettings settings;
 	
 #ifndef Q_OS_ANDROID
@@ -391,6 +397,31 @@ void Settings::setNmeaSerialPort(const QString& name)
 		QSettings().setValue(QLatin1String("Sensors/nmea_serialport"), name);
 		emit settingsChanged();
 	}
+}
+
+std::vector<QColor> Settings::scribbleColors() const
+{
+	std::vector<QColor> scribble_colors;
+
+	auto const color_strings = getSetting(Settings::ScribbleTool_Colors)
+	                .toString().split(QLatin1Char(','));
+	scribble_colors.reserve(color_strings.size());
+
+	// we don't bother about malformed strings and accept the resulting zero
+	for (const auto& color_string : color_strings)
+		scribble_colors.emplace_back(QRgb(color_string.toUInt(nullptr, 16)));
+
+	return scribble_colors;
+}
+
+void Settings::setScribbleColors(const std::vector<QColor>& new_colors)
+{
+	QStringList strings;
+	
+	for (auto const& color : new_colors)
+		strings.append(color.name().right(6).toUpper());
+
+	setSetting(Settings::ScribbleTool_Colors, strings.join(QLatin1Char(',')));
 }
 
 
