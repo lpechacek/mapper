@@ -347,9 +347,11 @@ ClosestPathCoord VirtualPath::findClosestPointTo(
         size_type start_index,
         size_type end_index ) const
 {
-	Q_ASSERT(!path_coords.empty());
+	Q_ASSERT(path_coords.size() > 1);
 	
-	auto result = ClosestPathCoord { path_coords.front(), distance_bound_squared };
+	auto result = ClosestPathCoord { path_coords.front(), 
+	              path_coords[1].pos - path_coords[0].pos,
+	              distance_bound_squared };
 	
 	// Find upper bound for distance.
 	for (const auto& path_coord : path_coords)
@@ -364,6 +366,8 @@ ClosestPathCoord VirtualPath::findClosestPointTo(
 		if (dist_sq < result.distance_squared)
 		{
 			result.distance_squared = dist_sq;
+			// \todo calculate tangent as an average of the neighboring segments
+			result.tangent = path_coords[path_coord.index+(path_coord.index == end_index ? -1 : 1)].pos - path_coord.pos;
 			result.path_coord = path_coord;
 		}
 	}
@@ -391,6 +395,7 @@ ClosestPathCoord VirtualPath::findClosestPointTo(
 			if (to_coord.lengthSquared() < result.distance_squared)
 			{
 				result.distance_squared = to_coord.lengthSquared();
+				result.tangent = tangent;
 				result.path_coord = *pc;
 			}
 			continue;
@@ -402,6 +407,7 @@ ClosestPathCoord VirtualPath::findClosestPointTo(
 			if (coord.distanceSquaredTo(next_pos) < result.distance_squared)
 			{
 				result.distance_squared = coord.distanceSquaredTo(next_pos);
+				result.tangent = tangent;
 				result.path_coord = *next_pc;
 			}
 			continue;
@@ -425,13 +431,16 @@ ClosestPathCoord VirtualPath::findClosestPointTo(
 			if (coords.flags[result.path_coord.index].isCurveStart())
 			{
 				MapCoordF unused;
+				MapCoordF curve2_control_point1;
 				PathCoord::splitBezierCurve(MapCoordF(coords.flags[result.path_coord.index]), MapCoordF(coords.flags[result.path_coord.index+1]),
 											MapCoordF(coords.flags[result.path_coord.index+2]), MapCoordF(coords.flags[result.path_coord.index+3]),
-											result.path_coord.param, unused, unused, result.path_coord.pos, unused, unused);
+											result.path_coord.param, unused, unused, result.path_coord.pos, curve2_control_point1, unused);
+				result.tangent = curve2_control_point1 - result.path_coord.pos;
 			}
 			else
 			{
-				result.path_coord.pos = pos + (next_pos - pos) * double(factor);
+				result.tangent = next_pos - pos;
+				result.path_coord.pos = pos + result.tangent * double(factor);
 			}
 		}
 	}

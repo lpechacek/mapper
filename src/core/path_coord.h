@@ -163,6 +163,7 @@ public:
 struct ClosestPathCoord
 {
 	PathCoord path_coord;
+	MapCoordF tangent;
 	double distance_squared;
 };
 
