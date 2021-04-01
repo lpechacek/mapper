@@ -314,15 +314,6 @@ namespace
 	}
 	
 	
-	void fuzzyCompareSymbol(const AreaSymbol& actual, const AreaSymbol& expected)
-	{
-		auto pattern_rotable = false;
-		for (auto i = 0; i < expected.getNumFillPatterns(); ++i)
-			pattern_rotable |= expected.getFillPattern(i).rotatable();
-		for (auto i = 0; i < actual.getNumFillPatterns(); ++i)
-			COMPARE_SYMBOL_PROPERTY(actual.getFillPattern(i).rotatable(), pattern_rotable, expected);
-	}
-	
 	void fuzzyCompareSymbol(const Symbol& actual, const Symbol& expected, const QByteArray& /*format_id*/)
 	{
 		COMPARE_SYMBOL_PROPERTY(actual.isHidden(), expected.isHidden(), expected);
@@ -338,10 +329,6 @@ namespace
 		
 		switch (actual.getType())
 		{
-		case Symbol::Area:
-			fuzzyCompareSymbol(static_cast<AreaSymbol const&>(actual), static_cast<AreaSymbol const&>(expected));
-			break;
-			
 		default:
 			;  /// \todo Extend fuzzy testing
 		}
