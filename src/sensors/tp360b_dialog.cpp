@@ -22,6 +22,7 @@
 #include <QWidget>
 #include <QtGlobal>
 
+#include "../core/app_permissions.h" // FIXME - the path - remove ../
 #include "tp360b_lib.h"
 #include "tp360b_dialog-ui.h"
 
@@ -113,6 +114,16 @@ void TP360BWidget::on_disconnectButton_clicked()
 void TP360BWidget::on_connectButton_clicked()
 {
 	logEvent(QString::fromLatin1("Connect button clicked.\n"));
+	
+	if(AppPermissions::checkPermission(AppPermissions::Bluetooth) == AppPermissions::Denied)
+	{
+		logEvent(QString::fromLatin1("Missing Bluetooth permission."));
+		if (AppPermissions::requestPermissionSync(AppPermissions::Bluetooth) == AppPermissions::Denied)
+		{
+			logEvent(QString::fromLatin1("Permisisons not granted."));
+			return;
+		}
+	}
 	
 	ui->connectButton->setText(QString::fromLatin1("Connecting..."));
 	

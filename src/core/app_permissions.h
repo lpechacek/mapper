@@ -52,6 +52,7 @@ namespace AppPermissions
 	{
 		LocationAccess,
 		StorageAccess,
+		Bluetooth,
 	};
 	
 	/// Possible results of requesting a permission.
