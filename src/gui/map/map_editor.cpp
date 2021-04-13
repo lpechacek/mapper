@@ -3381,7 +3381,7 @@ void MapEditorController::laserRangefinderClicked(bool checked)
 	{
 		laser_rangefinder_dock_widget = new EditorDockWidget(tr("Laser rangefinder"), laser_rangefinder_act, this, window);
 		laser_rangefinder_dock_widget->toggleViewAction()->setVisible(false);
-		auto* embedded_widget = new TP360BWidget(laser_rangefinder_dock_widget);
+		auto* embedded_widget = new TP360BWidget(laser_rangefinder_dock_widget, gps_marker_display);
 		laser_rangefinder_dock_widget->setWidget(embedded_widget);
 		laser_rangefinder_dock_widget->setObjectName(QString::fromLatin1("Laser rangefinder dock widget"));
 		addFloatingDockWidget(laser_rangefinder_dock_widget);

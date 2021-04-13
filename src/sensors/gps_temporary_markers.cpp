@@ -28,6 +28,7 @@
 #include <QPen>
 #include <QRgb>
 
+#include "core/map.h"
 #include "core/map_coord.h"
 #include "core/map_view.h"
 #include "gui/map/map_widget.h"
@@ -63,6 +64,18 @@ bool GPSTemporaryMarkers::addPoint()
 	points.push_back(gps_display->getLatestGPSCoord());
 	updateMapWidget();
 	return true;
+}
+
+bool GPSTemporaryMarkers::addPointRelative(qreal azimuth, qreal distance)
+{
+	if (!gps_display->hasValidPosition())
+		return false;
+	
+	auto const map_scale = widget->getMapView()->getMap()->getScaleDenominator();
+	auto const offset = QLineF::fromPolar(distance / map_scale * 1000, -azimuth+90).p2(); // offset in micrometers
+	points.push_back(gps_display->getLatestGPSCoord() + offset);
+	updateMapWidget();
+	return true;	
 }
 
 void GPSTemporaryMarkers::startPath()

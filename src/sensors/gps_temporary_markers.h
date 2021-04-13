@@ -47,6 +47,13 @@ public:
 	
 	/** Returns false if no point was added due to not having a valid position yet. */
 	bool addPoint();
+	/**
+	 * @brief Add temporary marker relative to the current position.
+	 * @param azimuth In degrees, zero at 12 o'clock, positive is clockwise.
+	 * @param distance In meters.
+	 * @return True if position is valid and marker was set.
+	 */
+	bool addPointRelative(qreal azimuth, qreal distance);
 	/** Starts recording a GPS path. */
 	void startPath();
 	/** Stops recording a GPS path. */

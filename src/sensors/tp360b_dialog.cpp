@@ -23,6 +23,7 @@
 #include <QtGlobal>
 
 #include "../core/app_permissions.h" // FIXME - the path - remove ../
+#include "../sensors/gps_temporary_markers.h"
 #include "tp360b_lib.h"
 #include "tp360b_dialog-ui.h"
 
@@ -54,8 +55,10 @@ void setLayoutItemsVisible(const QLayout* layout, bool enabled)
 
 namespace OpenOrienteering {
 	
-TP360BWidget::TP360BWidget(QWidget *parent)
+TP360BWidget::TP360BWidget(QWidget *parent,
+                           GPSTemporaryMarkers* gps_marker_display)
     : QScrollArea(parent)
+    , gps_marker_display(gps_marker_display)
 {
 	ui = new Ui::MainWindow();
 	setMinimumSize(300, 150);
@@ -204,6 +207,8 @@ void TP360BWidget::readSocket()
 			         .arg(m.inclination)
 			         .arg(m.azimuth)
 			         .arg(m.distanceAccuracy));	
+			if (gps_marker_display)
+				gps_marker_display->addPointRelative(m.azimuth, m.horizontalDistance);
 		}
 	}
 }

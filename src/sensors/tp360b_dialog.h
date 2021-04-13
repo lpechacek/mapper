@@ -13,12 +13,15 @@ namespace Ui { class MainWindow; }
 
 namespace OpenOrienteering {
 
+class GPSTemporaryMarkers;
+
 class TP360BWidget : public QScrollArea
 {
 	Q_OBJECT
 
 public:
-	TP360BWidget(QWidget *parent = nullptr);
+	TP360BWidget(QWidget* parent = nullptr,
+	             GPSTemporaryMarkers* gps_marker_display = nullptr);
 	~TP360BWidget();
 	
 private slots:
@@ -35,6 +38,7 @@ private:
 	QBluetoothSocket* bt_socket = {};
 	int timerId = {};
 	quint16 volt_readings[5] = {};
+	GPSTemporaryMarkers* gps_marker_display = {};
 	
 	void logEvent(QString str);
 	void timerEvent(QTimerEvent *) override;
