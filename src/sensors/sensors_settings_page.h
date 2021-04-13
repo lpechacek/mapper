@@ -51,6 +51,7 @@ protected:
 private:
 	QComboBox* position_source_box = nullptr;
 	QComboBox* nmea_serialport_box = nullptr;
+	QComboBox* tp360b_bt_address_box = nullptr;
 	
 };
 

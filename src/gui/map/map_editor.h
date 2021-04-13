@@ -455,6 +455,8 @@ public slots:
 	void scaleClicked();
 	/** Shows or hides the MeasureWidget */
 	void measureClicked(bool checked);
+	/** Shows or hides the laser rangefinder dialog */
+	void laserRangefinderClicked(bool checked);
 	/** Calculates the union of selected same-symbol area objects */
 	void booleanUnionClicked();
 	/** Calculates the intersection of selected same-symbol area objects */
@@ -790,6 +792,8 @@ private:
 	QAction* scale_act = {};
 	QAction* measure_act = {};
 	EditorDockWidget* measure_dock_widget;
+	QAction* laser_rangefinder_act = {};
+	EditorDockWidget* laser_rangefinder_dock_widget = {};
 	QAction* boolean_union_act = {};
 	QAction* boolean_intersection_act = {};
 	QAction* boolean_difference_act = {};
