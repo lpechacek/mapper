@@ -67,6 +67,11 @@ SensorsSettingsPage::SensorsSettingsPage(QWidget* parent)
 	
 	form_layout->addItem(Util::SpacerItem::create(this));
 #endif
+
+	form_layout->addRow(Util::Headline::create(tr("TP360B laser ranger:")));
+	
+	tp360b_bt_address_box = new QComboBox();
+	form_layout->addRow(tr("Bluetooth address:"), tp360b_bt_address_box);
 	
 	updateWidgets();
 }

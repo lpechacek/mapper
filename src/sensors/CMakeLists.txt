@@ -21,6 +21,7 @@ find_package(Qt5Widgets REQUIRED)
 find_package(Qt5Sensors)
 find_package(Qt5Positioning)
 find_package(Qt5SerialPort)
+find_package(Qt5Bluetooth)
 if(ANDROID)
 	find_package(Qt5AndroidExtras REQUIRED)
 endif()
@@ -96,6 +97,21 @@ add_library(nmea_position_source STATIC  ${NMEA_POSITION_SOURCES})
 target_compile_definitions(nmea_position_source  ${NMEA_POSITION_DEFINITIONS})
 target_link_libraries(nmea_position_source  ${NMEA_POSITION_LINK_LIBRARIES})
 
+set(LASER_RANGEFINDER_SOURCES
+    tp360b_dialog.cpp
+    tp360b_lib.cpp
+)
+set(LASER_RANGEFINDER_LINK_LIBRARIES
+    PRIVATE Qt5::Bluetooth
+    PRIVATE Qt5::Core
+    PRIVATE Qt5::Widgets)
+if(ANDROID)
+    list(APPEND LASER_RANGEFINDER_LINK_LIBRARIES
+         PRIVATE Qt5::AndroidExtras
+    )
+endif()
+add_library(tp360b_source STATIC ${LASER_RANGEFINDER_SOURCES})
+target_link_libraries(tp360b_source ${LASER_RANGEFINDER_LINK_LIBRARIES})
 
 # PowershellPositionPlugin
 #
@@ -161,11 +177,12 @@ target_link_libraries(mapper-sensors
   PUBLIC
     nmea_position_source
     powershell_position_source
+    tp360b_source
     Qt5::Core
     Qt5::Gui
     Qt5::Widgets
 )
-foreach(lib Qt5::Positioning Qt5::Sensors Qt5::SerialPort Qt5::AndroidExtras)
+foreach(lib Qt5::Bluetooth Qt5::Positioning Qt5::Sensors Qt5::SerialPort Qt5::AndroidExtras)
 	if(TARGET ${lib})
 		target_link_libraries(mapper-sensors  PRIVATE ${lib})
 	endif()

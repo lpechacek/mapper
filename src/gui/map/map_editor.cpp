@@ -139,6 +139,7 @@
 #include "sensors/gps_display.h"
 #include "sensors/gps_temporary_markers.h"
 #include "sensors/gps_track_recorder.h"
+#include "sensors/tp360b_dialog.h"
 #include "templates/paint_on_template_feature.h"
 #include "templates/template.h"
 #include "templates/template_dialog_reopen.h"
@@ -319,6 +320,7 @@ MapEditorController::~MapEditorController()
 	delete toolbar_mapparts;
 	delete print_dock_widget;
 	delete measure_dock_widget;
+	delete laser_rangefinder_dock_widget;
 	if (color_dock_widget)
 		delete color_dock_widget;
 	delete symbol_dock_widget;
@@ -1059,6 +1061,7 @@ void MapEditorController::createActions()
 	rotate_pattern_act = newToolAction("rotatepatterns", tr("Rotate pattern"), this, SLOT(rotatePatternClicked()), "tool-rotate-pattern.png", QString{}, "toolbars.html#tool_rotate_pattern");
 	scale_act = newToolAction("scaleobjects", tr("Scale objects"), this, SLOT(scaleClicked()), "tool-scale.png", QString{}, "toolbars.html#scale");
 	measure_act = newCheckAction("measure", tr("Measure lengths and areas"), this, SLOT(measureClicked(bool)), "tool-measure.png", QString{}, "toolbars.html#measure");
+	laser_rangefinder_act = newCheckAction("laserrangefinder", tr("Measure distances and azimuths"), this, SLOT(laserRangefinderClicked(bool)), "plus.png", QString{}, "");
 	boolean_union_act = newAction("booleanunion", tr("Unify areas"), this, SLOT(booleanUnionClicked()), "tool-boolean-union.png", QString{}, "toolbars.html#unify_areas");
 	boolean_intersection_act = newAction("booleanintersection", tr("Intersect areas"), this, SLOT(booleanIntersectionClicked()), "tool-boolean-intersection.png", QString{}, "toolbars.html#intersect_areas");
 	boolean_difference_act = newAction("booleandifference", tr("Cut away from area"), this, SLOT(booleanDifferenceClicked()), "tool-boolean-difference.png", QString{}, "toolbars.html#area_difference");
@@ -1367,6 +1370,7 @@ void MapEditorController::createMenuAndToolbars()
 	toolbar_editing->addAction(rotate_pattern_act);
 	toolbar_editing->addAction(scale_act);
 	toolbar_editing->addAction(measure_act);
+	toolbar_editing->addAction(laser_rangefinder_act);
 	
 	// Advanced editing toolbar
 	toolbar_advanced_editing = window->addToolBar(tr("Advanced editing"));
@@ -1614,6 +1618,7 @@ void MapEditorController::createMobileGUI()
 	top_action_bar->addActionAtEnd(measure_act, 0, col);
 	top_action_bar->addActionAtEnd(boolean_merge_holes_act, 1, col++);
 	
+	top_action_bar->addActionAtEnd(laser_rangefinder_act, 0, col);
 	top_action_bar->addActionAtEnd(mappart_action, 1, col++);
 	if (auto* mappart_button = top_action_bar->getButtonForAction(mappart_action))
 		mappart_button->setPopupMode(QToolButton::InstantPopup);
@@ -3368,6 +3373,21 @@ void MapEditorController::measureClicked(bool checked)
 	}
 	
 	measure_dock_widget->setVisible(checked);
+}
+
+void MapEditorController::laserRangefinderClicked(bool checked)
+{
+	if (!laser_rangefinder_dock_widget)
+	{
+		laser_rangefinder_dock_widget = new EditorDockWidget(tr("Laser rangefinder"), laser_rangefinder_act, this, window);
+		laser_rangefinder_dock_widget->toggleViewAction()->setVisible(false);
+		auto* embedded_widget = new TP360BWidget(laser_rangefinder_dock_widget);
+		laser_rangefinder_dock_widget->setWidget(embedded_widget);
+		laser_rangefinder_dock_widget->setObjectName(QString::fromLatin1("Laser rangefinder dock widget"));
+		addFloatingDockWidget(laser_rangefinder_dock_widget);
+	}
+	
+	laser_rangefinder_dock_widget->setVisible(checked);
 }
 
 void MapEditorController::booleanUnionClicked()
