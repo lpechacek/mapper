@@ -67,7 +67,7 @@ public:
         batteryCharge = new QProgressBar(centralwidget);
         batteryCharge->setObjectName(QString::fromUtf8("batteryCharge"));
         batteryCharge->setMinimum(2000);
-        batteryCharge->setMaximum(3000);
+        batteryCharge->setMaximum(3100);
 
         infoStripLayout->addWidget(batteryCharge);
 
@@ -108,7 +108,7 @@ public:
         horizontalLayout_2->addWidget(placeVertex);
 
 
-        verticalLayout_2->addLayout(horizontalLayout_2);
+//        verticalLayout_2->addLayout(horizontalLayout_2);
 
         horizontalLayout_3 = new QHBoxLayout();
         horizontalLayout_3->setObjectName(QString::fromUtf8("horizontalLayout_3"));
@@ -124,7 +124,7 @@ public:
         horizontalLayout_3->addWidget(confirmDataButton);
 
 
-        verticalLayout_2->addLayout(horizontalLayout_3);
+//        verticalLayout_2->addLayout(horizontalLayout_3);
 
         verticalLayout = new QVBoxLayout();
         verticalLayout->setObjectName(QString::fromUtf8("verticalLayout"));
@@ -143,15 +143,15 @@ public:
 
 		verticalLayout_2->addLayout(verticalLayout);
 
-		verticalSpacer = new QSpacerItem(20, 0, QSizePolicy::Minimum, QSizePolicy::Expanding);
+//		verticalSpacer = new QSpacerItem(20, 0, QSizePolicy::Minimum, QSizePolicy::Expanding);
 
-		verticalLayout_2->addItem(verticalSpacer);
+//		verticalLayout_2->addItem(verticalSpacer);
 
         retranslateUi(MainWindow);
 		QObject::connect(showDebugBox, &QCheckBox::toggled, [this](bool debug_enabled) {
 			logWidget->setVisible(debug_enabled);
-			verticalSpacer->changeSize(0, 0, QSizePolicy::Minimum,
-			                           debug_enabled ? QSizePolicy::Minimum : QSizePolicy::Expanding);
+//			verticalSpacer->changeSize(0, 0, QSizePolicy::Minimum,
+//			                           debug_enabled ? QSizePolicy::Minimum : QSizePolicy::Expanding);
 		});
         QObject::connect(confirmData, SIGNAL(toggled(bool)), confirmDataButton, SLOT(setEnabled(bool)));
 
