@@ -137,7 +137,7 @@ void TP360BWidget::on_connectButton_clicked()
 	}
 	
 	// Connect to service
-	bt_socket = new QBluetoothSocket(QBluetoothServiceInfo::RfcommProtocol, this);
+	bt_socket = new QBluetoothSocket(QBluetoothServiceInfo::RfcommProtocol);
 	bt_socket->connectToService(QBluetoothAddress("00:1B:35:00:50:E6"), // FIXME: make the address configurable
 	                            QUuid("{00001101-0000-1000-8000-00805f9b34fb}"));
 	
