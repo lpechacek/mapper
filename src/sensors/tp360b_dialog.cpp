@@ -94,6 +94,18 @@ TP360BWidget::TP360BWidget(QWidget *parent,
 	        [this](const QBluetoothAddress &address, QBluetoothLocalDevice::Pairing pairing) {
 		logEvent(QString::fromLatin1("pairingFinished: %1 %2\n").arg(address.toString()).arg(pairing));
 	});
+	connect(local_bt_dev, &QBluetoothLocalDevice::hostModeStateChanged,
+	        [this](const QBluetoothLocalDevice::HostMode mode) {
+		logEvent(QString::fromLatin1("hostModeStateChanged: %1\n").arg(mode));
+	});
+	connect(local_bt_dev, &QBluetoothLocalDevice::deviceConnected,
+	        [this](const QBluetoothAddress &address) {
+		logEvent(QString::fromLatin1("deviceConnected: %1\n").arg(address.toString()));
+	});
+	connect(local_bt_dev, &QBluetoothLocalDevice::deviceDisconnected,
+	        [this](const QBluetoothAddress &address) {
+		logEvent(QString::fromLatin1("deviceDisconnected: %1\n").arg(address.toString()));
+	});
 }
 
 TP360BWidget::~TP360BWidget()
