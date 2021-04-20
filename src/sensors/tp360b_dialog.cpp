@@ -220,7 +220,19 @@ void TP360BWidget::readSocket()
 			         .arg(m.azimuth)
 			         .arg(m.distanceAccuracy));	
 			if (gps_marker_display)
-				gps_marker_display->addPointRelative(m.azimuth, m.horizontalDistance);
+			{
+				switch(m.type)
+				{
+				case LibTP360B::MeasurementType::Azimuth:
+				    gps_marker_display->addAzimuthIndication(m.azimuth);
+					break;
+				case LibTP360B::MeasurementType::HorizontalDistance:
+				    gps_marker_display->addPointRelative(m.azimuth, m.horizontalDistance);
+					break;
+				default:
+					logEvent(QString::fromLatin1("Ignoring measurement type %1\n").arg(m.type));
+				}
+			}
 		}
 	}
 }

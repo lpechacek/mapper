@@ -78,6 +78,41 @@ bool GPSTemporaryMarkers::addPointRelative(qreal azimuth, qreal distance)
 	return true;	
 }
 
+bool GPSTemporaryMarkers::addAzimuthIndication(int azimuth)
+{
+	if (!gps_display->hasValidPosition())
+		return false;
+		
+	auto const orig_recording_path = recording_path;
+	// Yes, this section can race with newGPSPosition().
+	// We'd better avoid startPath and insert the coordinates atomically.
+	// \todo Even better, the temporary marker functinality should be
+	// isolated into an independent class.
+	if (!recording_path)
+		startPath();
+	
+	auto const length_conversion_factor = 1000.0 / widget->getMapView()->getMap()->getScaleDenominator();
+	auto const angle_radians = azimuth * M_PI/180 - M_PI_2;
+	auto const last_record = paths.back().back();
+	auto const location = MapCoordF(last_record.x(), last_record.y());
+	auto const arrow_tip = location + MapCoordF::fromPolar(50 * length_conversion_factor, angle_radians);
+	newGPSPosition(arrow_tip, 0);
+	constexpr auto arrow_head_angle = 15 * M_PI/180;
+	auto const arrow_left_wing = arrow_tip + MapCoordF::fromPolar(5 * length_conversion_factor, angle_radians + M_PI + arrow_head_angle);
+	newGPSPosition(arrow_left_wing, 0);
+	newGPSPosition(arrow_tip, 0);
+	auto const arrow_right_wing = arrow_tip + MapCoordF::fromPolar(5 * length_conversion_factor, angle_radians + M_PI - arrow_head_angle);
+	newGPSPosition(arrow_right_wing, 0);
+	newGPSPosition(arrow_tip, 0);
+	newGPSPosition(location, 0);
+
+	if (!orig_recording_path)	
+		stopPath();
+	
+	updateMapWidget();
+	return true;
+}
+
 void GPSTemporaryMarkers::startPath()
 {
 	paths.push_back(std::vector< QPointF >());

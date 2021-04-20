@@ -64,6 +64,7 @@ public:
 	/// This is called from the MapWidget drawing code to draw the markers.
 	void paint(QPainter* painter);
 	
+	bool addAzimuthIndication(int azimuth);
 public slots:
 	void newGPSPosition(const OpenOrienteering::MapCoordF& coord, float accuracy);
 	
