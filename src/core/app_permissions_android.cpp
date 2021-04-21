@@ -71,6 +71,11 @@ QStringList androidPermissions(AppPermission permission)
 	case LocationAccess:
 		android_permissions << QStringLiteral("android.permission.ACCESS_FINE_LOCATION");
 		break;
+
+	case Bluetooth:
+		android_permissions << QStringLiteral("android.permission.BLUETOOTH")
+		                    << QStringLiteral("android.permission.ACCESS_FINE_LOCATION");
+		break;
 	}
 	
 	return android_permissions;
