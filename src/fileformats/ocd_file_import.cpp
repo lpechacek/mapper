@@ -92,7 +92,6 @@ static QTextCodec* codecFromSettings()
 	return Util::codecForName(name);
 }	
 
-
 }  // namespace
 
 
@@ -248,6 +247,12 @@ void OcdFileImport::addSymbolWarning(const AreaSymbol* symbol, const QString& wa
 void OcdFileImport::addSymbolWarning(const LineSymbol* symbol, const QString& warning)
 {
 	addWarning( tr("In line symbol %1 '%2': %3").
+	            arg(symbol->getNumberAsString(), symbol->getName(), warning) );
+}
+
+void OcdFileImport::addSymbolWarning(const PointSymbol* symbol, const QString& warning)
+{
+	addWarning( tr("In point symbol %1 '%2': %3").
 	            arg(symbol->getNumberAsString(), symbol->getName(), warning) );
 }
 
@@ -1924,18 +1929,13 @@ Object* OcdFileImport::importObject(const O& ocd_object, MapPart* part)
 		p->setSymbol(symbol, true);
 		
 		// extra properties: rotation
-		auto point_symbol = reinterpret_cast<PointSymbol*>(symbol);
-		if (point_symbol->isRotatable())
+		p->setRotation(convertAngle(ocd_object.angle));
+
+		auto* point_symbol = symbol->asPoint();
+		if (!point_symbol->isRotatable() && !point_symbol->isSymmetrical() && ocd_object.angle)
 		{
-			p->setRotation(convertAngle(ocd_object.angle));
-		}
-		else if (ocd_object.angle != 0)
-		{
-			if (!point_symbol->isSymmetrical())
-			{
-				point_symbol->setRotatable(true);
-				p->setRotation(convertAngle(ocd_object.angle));
-			}
+			point_symbol->setRotatable(true);
+			addSymbolWarning(point_symbol, tr("Removing rotation lock due to existence of an object with a rotated pattern."));		
 		}
 		
 		const MapCoord pos = convertOcdPoint(ocd_object.coords[0]);
@@ -1949,6 +1949,12 @@ Object* OcdFileImport::importObject(const O& ocd_object, MapPart* part)
 		auto t = new TextObject(symbol);
 		t->setText(getObjectText(ocd_object));
 		t->setRotation(convertAngle(ocd_object.angle));
+		if (!symbol->isRotatable() && ocd_object.angle)
+		{
+			auto* text_symbol = symbol->asText();
+			text_symbol->setRotatable(true);
+			addSymbolWarning(text_symbol, tr("Removing rotation lock due to existence of an object with a rotated pattern."));					
+		}
 		t->setHorizontalAlignment(text_halign_map.value(symbol));
 		// Vertical alignment is set in fillTextPathCoords().
 		
@@ -1967,6 +1973,19 @@ Object* OcdFileImport::importObject(const O& ocd_object, MapPart* part)
 	{
 		auto p = new OcdImportedPathObject(symbol);
 		p->setPatternRotation(convertAngle(ocd_object.angle));
+		if (symbol->getType() == Symbol::Area)
+		{
+			auto* area_symbol = symbol->asArea();
+			
+			if (area_symbol->getNumFillPatterns()
+			    && !area_symbol->hasRotatableFillPattern()
+			    && ocd_object.angle)
+			{
+				for (auto n = 0; n < area_symbol->getNumFillPatterns(); ++n)
+					area_symbol->getFillPattern(n).setRotatable(true);
+				addSymbolWarning(area_symbol, tr("Removing rotation lock due to existence of an object with a rotated pattern."));
+			}
+		}
 		
 		// Normal path
 		fillPathCoords(p, symbol->getContainedTypes() & Symbol::Area, ocd_object.num_items, reinterpret_cast<const Ocd::OcdPoint32 *>(ocd_object.coords));
