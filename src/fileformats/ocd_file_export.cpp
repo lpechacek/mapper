@@ -423,23 +423,26 @@ Ocd::OcdPoint32 convertPoint(const MapCoord& coord)
 
 
 /**
- * Convert a size to the OCD format.
+ * Convert a size to the OCD format and store it in the output parameter.
  * 
  * This function converts from 1/100 mm to 1/10 mm, rounding half up for positive values.
  */
-constexpr qint16 convertSize(qint32 size)
+template <typename T, typename R>
+constexpr void convertSize(T size, R& store)
 {
-	return qint16((size+5) / 10);
+	Q_STATIC_ASSERT(std::is_integral<R>::value);
+	store = (size+5) / 10;
 }
 
+
 /**
- * Convert a size to the OCD format.
- * 
- * This function converts from 1/100 mm to 1/10 mm, rounding half up for positive values.
+ * Single-parameter convertSize helper for use in expressions.
  */
-constexpr qint32 convertSize(qint64 size)
+constexpr int convertSize(int size)
 {
-	return qint32((size+5) / 10);
+	int ret = {};
+	convertSize(size, ret);
+	return ret;
 }
 
 
@@ -448,11 +451,12 @@ constexpr qint32 convertSize(qint64 size)
  * 
  * This function converts from radians to 1/10 degrees, rounding to the nearest integer.
  */
-int convertRotation(qreal angle)
+template <typename T, typename R>
+constexpr void convertRotation(T angle, R& store)
 {
-	return qRound(10 * qRadiansToDegrees(angle));
+	Q_STATIC_ASSERT(std::is_integral<R>::value);
+	store = qRound(10 * qRadiansToDegrees(angle));
 }
-
 
 
 int getPatternSize(const PointSymbol* point)
@@ -1286,7 +1290,7 @@ qint16 OcdFileExport::exportSubPattern(const MapCoordVector& coords, const Symbo
 				auto& element = makeElement(byte_array);
 				element.type = Element::TypeDot;
 				element.color = convertColor(point_symbol->getInnerColor());
-				element.diameter = convertSize(2 * point_symbol->getInnerRadius());
+				convertSize(2 * point_symbol->getInnerRadius(), element.diameter);
 				element.num_coords = exportCoordinates(coords, symbol, byte_array);
 				num_coords += 2 + element.num_coords;
 			}
@@ -1295,11 +1299,11 @@ qint16 OcdFileExport::exportSubPattern(const MapCoordVector& coords, const Symbo
 				auto& element = makeElement(byte_array);
 				element.type = Element::TypeCircle;
 				element.color = convertColor(point_symbol->getOuterColor());
-				element.line_width = convertSize(point_symbol->getOuterWidth());
+				convertSize(point_symbol->getOuterWidth(), element.line_width);
 				if (ocd_version <= 8)
-					element.diameter = convertSize(2 * point_symbol->getInnerRadius() + 2 * point_symbol->getOuterWidth());
+					convertSize(2 * point_symbol->getInnerRadius() + 2 * point_symbol->getOuterWidth(), element.diameter);
 				else
-					element.diameter = convertSize(2 * point_symbol->getInnerRadius() + point_symbol->getOuterWidth());
+					convertSize(2 * point_symbol->getInnerRadius() + point_symbol->getOuterWidth(), element.diameter);
 				element.num_coords = exportCoordinates(coords, symbol, byte_array);
 				num_coords += 2 + element.num_coords;
 			}
@@ -1316,7 +1320,7 @@ qint16 OcdFileExport::exportSubPattern(const MapCoordVector& coords, const Symbo
 			else if (line_symbol->getJoinStyle() == LineSymbol::MiterJoin)
 				element.flags |= 4;
 			element.color = convertColor(line_symbol->getColor());
-			element.line_width = convertSize(line_symbol->getLineWidth());
+			convertSize(line_symbol->getLineWidth(), element.line_width);
 			element.num_coords = exportCoordinates(coords, symbol, byte_array);
 			num_coords += 2 + element.num_coords;
 		}
@@ -1405,12 +1409,12 @@ quint8 OcdFileExport::exportAreaSymbolCommon(const AreaSymbol* area_symbol, OcdA
 			case Ocd::HatchNone:
 				ocd_area_common.hatch_mode = Ocd::HatchSingle;
 				ocd_area_common.hatch_color = convertColor(pattern.line_color);
-				ocd_area_common.hatch_line_width = decltype(ocd_area_common.hatch_line_width)(convertSize(pattern.line_width));
+				convertSize(pattern.line_width, ocd_area_common.hatch_line_width);
 				if (ocd_version <= 8)
-					ocd_area_common.hatch_dist = decltype(ocd_area_common.hatch_dist)(convertSize(pattern.line_spacing - pattern.line_width));
+					convertSize(pattern.line_spacing - pattern.line_width, ocd_area_common.hatch_dist);
 				else
-					ocd_area_common.hatch_dist = decltype(ocd_area_common.hatch_dist)(convertSize(pattern.line_spacing));
-				ocd_area_common.hatch_angle_1 = decltype(ocd_area_common.hatch_angle_1)(convertRotation(pattern.angle));
+					convertSize(pattern.line_spacing, ocd_area_common.hatch_dist);
+				convertRotation(pattern.angle, ocd_area_common.hatch_angle_1);
 				if (pattern.rotatable())
 					flags |= Ocd::SymbolRotatable;
 				break;
@@ -1423,7 +1427,7 @@ quint8 OcdFileExport::exportAreaSymbolCommon(const AreaSymbol* area_symbol, OcdA
 						ocd_area_common.hatch_dist = decltype(ocd_area_common.hatch_dist)(ocd_area_common.hatch_dist + convertSize(pattern.line_spacing - pattern.line_width)) / 2;
 					else
 						ocd_area_common.hatch_dist = decltype(ocd_area_common.hatch_dist)(ocd_area_common.hatch_dist + convertSize(pattern.line_spacing)) / 2;
-					ocd_area_common.hatch_angle_2 = decltype(ocd_area_common.hatch_angle_2)(convertRotation(pattern.angle));
+					convertRotation(pattern.angle, ocd_area_common.hatch_angle_2);
 					if (pattern.rotatable())
 						flags |= Ocd::SymbolRotatable;
 					break;
@@ -1443,9 +1447,9 @@ quint8 OcdFileExport::exportAreaSymbolCommon(const AreaSymbol* area_symbol, OcdA
 			{
 			case 0:
 				ocd_area_common.structure_mode = Ocd::StructureAlignedRows;
-				ocd_area_common.structure_width = decltype(ocd_area_common.structure_width)(convertSize(pattern.point_distance));
-				ocd_area_common.structure_height = decltype(ocd_area_common.structure_height)(convertSize(pattern.line_spacing));
-				ocd_area_common.structure_angle = decltype(ocd_area_common.structure_angle)(convertRotation(pattern.angle));
+				convertSize(pattern.point_distance, ocd_area_common.structure_width);
+				convertSize(pattern.line_spacing, ocd_area_common.structure_height);
+				convertRotation(pattern.angle, ocd_area_common.structure_angle);
 				pattern_symbol = pattern.point;
 				if (pattern.rotatable())
 					flags |= Ocd::SymbolRotatable;
@@ -1465,7 +1469,7 @@ quint8 OcdFileExport::exportAreaSymbolCommon(const AreaSymbol* area_symbol, OcdA
 				{
 					// Revert from shifted rows if needed
 					ocd_area_common.structure_mode = Ocd::StructureAlignedRows;
-					ocd_area_common.structure_height = decltype(ocd_area_common.structure_height)(convertSize(pattern.line_spacing));
+					convertSize(pattern.line_spacing, ocd_area_common.structure_height);
 					point_patterns.append(&pattern);
 					break;
 				}
@@ -1583,7 +1587,7 @@ quint32 OcdFileExport::exportLineSymbolCommon(const LineSymbol* line_symbol, Ocd
 	if (line_symbol->getColor())
 	{
 		ocd_line_common.line_color = convertColor(line_symbol->getColor());
-		ocd_line_common.line_width = decltype(ocd_line_common.line_width)(convertSize(line_symbol->getLineWidth()));
+		convertSize(line_symbol->getLineWidth(), ocd_line_common.line_width);
 	}
 	
 	// Cap and Join
@@ -1614,8 +1618,8 @@ quint32 OcdFileExport::exportLineSymbolCommon(const LineSymbol* line_symbol, Ocd
 			ocd_line_common.line_style = 0;
 	}
 	
-	ocd_line_common.dist_from_start = convertSize(line_symbol->startOffset());
-	ocd_line_common.dist_from_end = convertSize(line_symbol->endOffset());
+	convertSize(line_symbol->startOffset(), ocd_line_common.dist_from_start);
+	convertSize(line_symbol->endOffset(), ocd_line_common.dist_from_end);
 	
 	// Dash pattern
 	if (line_symbol->isDashed())
@@ -1626,9 +1630,9 @@ quint32 OcdFileExport::exportLineSymbolCommon(const LineSymbol* line_symbol, Ocd
 				addWarning(::OpenOrienteering::OcdFileExport::tr("In line symbol \"%1\", neglecting the dash grouping.")
 				           .arg(line_symbol->getPlainTextName()));
 			
-			ocd_line_common.main_length = convertSize(line_symbol->getDashLength() + line_symbol->getBreakLength());
+			convertSize(line_symbol->getDashLength() + line_symbol->getBreakLength(), ocd_line_common.main_length);
 			ocd_line_common.end_length = ocd_line_common.main_length / 2;
-			ocd_line_common.sec_gap = convertSize(line_symbol->getBreakLength());
+			convertSize(line_symbol->getBreakLength(), ocd_line_common.sec_gap);
 		}
 		else
 		{
@@ -1638,24 +1642,24 @@ quint32 OcdFileExport::exportLineSymbolCommon(const LineSymbol* line_symbol, Ocd
 					addWarning(::OpenOrienteering::OcdFileExport::tr("In line symbol \"%1\", the number of dashes in a group has been reduced to 2.")
 					           .arg(line_symbol->getPlainTextName()));
 				
-				ocd_line_common.main_length = convertSize(2 * line_symbol->getDashLength() + line_symbol->getInGroupBreakLength());
-				ocd_line_common.end_length = convertSize(2 * line_symbol->getDashLength() + line_symbol->getInGroupBreakLength());
-				ocd_line_common.main_gap = convertSize(line_symbol->getBreakLength());
-				ocd_line_common.sec_gap = convertSize(line_symbol->getInGroupBreakLength());
+				convertSize(2 * line_symbol->getDashLength() + line_symbol->getInGroupBreakLength(), ocd_line_common.main_length);
+				convertSize(2 * line_symbol->getDashLength() + line_symbol->getInGroupBreakLength(), ocd_line_common.end_length);
+				convertSize(line_symbol->getBreakLength(), ocd_line_common.main_gap);
+				convertSize(line_symbol->getInGroupBreakLength(), ocd_line_common.sec_gap);
 				ocd_line_common.end_gap = ocd_line_common.sec_gap;
 			}
 			else
 			{
-				ocd_line_common.main_length = convertSize(line_symbol->getDashLength());
+				convertSize(line_symbol->getDashLength(), ocd_line_common.main_length);
 				ocd_line_common.end_length = ocd_line_common.main_length / (line_symbol->getHalfOuterDashes() ? 2 : 1);
-				ocd_line_common.main_gap = convertSize(line_symbol->getBreakLength());
+				convertSize(line_symbol->getBreakLength(), ocd_line_common.main_gap);
 			}
 		}
 	}
 	else
 	{
-		ocd_line_common.main_length = convertSize(line_symbol->getSegmentLength());
-		ocd_line_common.end_length = convertSize(line_symbol->getEndLength());
+		convertSize(line_symbol->getSegmentLength(), ocd_line_common.main_length);
+		convertSize(line_symbol->getEndLength(), ocd_line_common.end_length);
 	}
 	
 	// Double line
@@ -1666,7 +1670,7 @@ quint32 OcdFileExport::exportLineSymbolCommon(const LineSymbol* line_symbol, Ocd
 	
 	ocd_line_common.min_sym = line_symbol->getShowAtLeastOneSymbol() ? 0 : -1;
 	ocd_line_common.num_prim_sym = decltype(ocd_line_common.num_prim_sym)(line_symbol->getMidSymbolsPerSpot());
-	ocd_line_common.prim_sym_dist = convertSize(line_symbol->getMidSymbolDistance());
+	convertSize(line_symbol->getMidSymbolDistance(), ocd_line_common.prim_sym_dist);
 	
 	ocd_line_common.primary_data_size = getPatternSize(line_symbol->getMidSymbol()) / 8;
 	ocd_line_common.secondary_data_size = 0;
@@ -1766,32 +1770,32 @@ void OcdFileExport::exportLineSymbolDoubleLine(const LineSymbol* line_symbol, qu
 	}
 	else
 	{
-		ocd_line_common.double_width = convertSize(line_symbol->getLineWidth());
+		convertSize(line_symbol->getLineWidth(), ocd_line_common.double_width);
 	}
 	
 	auto export_quirks = false;
 	ocd_line_common.double_mode = OcdLineSymbolCommon::DoubleLineContinuous;
 	if (left_border.isVisible())
 	{
-		ocd_line_common.double_left_width = convertSize(left_border.width);
+		convertSize(left_border.width, ocd_line_common.double_left_width);
 		ocd_line_common.double_left_color = convertColor(left_border.color);
 		if (left_border.dashed)
 		{
 			ocd_line_common.double_mode = OcdLineSymbolCommon::DoubleLineLeftBorderDashed;
-			ocd_line_common.double_length = convertSize(left_border.dash_length);
-			ocd_line_common.double_gap = convertSize(left_border.break_length);
+			convertSize(left_border.dash_length, ocd_line_common.double_length);
+			convertSize(left_border.break_length, ocd_line_common.double_gap);
 		}
 	}
 	if (right_border.isVisible())
 	{
-		ocd_line_common.double_right_width = convertSize(right_border.width);
+		convertSize(right_border.width, ocd_line_common.double_right_width);
 		ocd_line_common.double_right_color = convertColor(right_border.color);
 		if (right_border.dashed)
 		{
 			export_quirks |= ocd_line_common.double_mode != OcdLineSymbolCommon::DoubleLineLeftBorderDashed;
 			ocd_line_common.double_mode = OcdLineSymbolCommon::DoubleLineBordersDashed;
-			ocd_line_common.double_length = convertSize(right_border.dash_length);
-			ocd_line_common.double_gap = convertSize(right_border.break_length);
+			convertSize(right_border.dash_length, ocd_line_common.double_length);
+			convertSize(right_border.break_length, ocd_line_common.double_gap);
 		}
 	}
 	if (filling_dashed)
@@ -1919,7 +1923,7 @@ void OcdFileExport::setupTextSymbolBasic(const TextSymbol* text_symbol, int alig
 	ocd_text_basic.font_size = decltype(ocd_text_basic.font_size)(qRound(10 * text_symbol->getFontSize() / 25.4 * 72.0));
 	ocd_text_basic.font_weight = text_symbol->isBold() ? 700 : 400;
 	ocd_text_basic.font_italic = text_symbol->isItalic() ? 1 : 0;
-	ocd_text_basic.char_spacing = decltype(ocd_text_basic.char_spacing)(convertSize(qRound(1000 * text_symbol->getCharacterSpacing())));
+	convertSize(qRound(1000 * text_symbol->getCharacterSpacing()), ocd_text_basic.char_spacing);
 	if (ocd_text_basic.char_spacing != 0)
 		addWarning(::OpenOrienteering::OcdFileExport::tr("In text symbol %1: custom character spacing is set,"
 		                                                 "its implementation does not match OCAD's behavior yet")
@@ -1935,7 +1939,7 @@ void OcdFileExport::setupTextSymbolSpecial(const TextSymbol* text_symbol, OcdTex
 	auto absolute_line_spacing = text_symbol->getLineSpacing()
 	                             * (text_symbol->getFontMetrics().lineSpacing() / text_symbol->calculateInternalScaling());
 	ocd_text_special.line_spacing = decltype(ocd_text_special.line_spacing)(qRound(absolute_line_spacing / (text_symbol->getFontSize() * 0.01)));
-	ocd_text_special.para_spacing = convertSize(qRound(1000 * text_symbol->getParagraphSpacing()));
+	convertSize(qRound(1000 * text_symbol->getParagraphSpacing()), ocd_text_special.para_spacing);
 	if (text_symbol->isUnderlined())
 		addWarning(::OpenOrienteering::OcdFileExport::tr("In text symbol %1: ignoring underlining")
 		           .arg(text_symbol->getPlainTextName()));
@@ -1945,8 +1949,8 @@ void OcdFileExport::setupTextSymbolSpecial(const TextSymbol* text_symbol, OcdTex
 	
 	ocd_text_special.line_below_on = text_symbol->hasLineBelow() ? 1 : 0;
 	ocd_text_special.line_below_color = convertColor(text_symbol->getLineBelowColor());
-	ocd_text_special.line_below_width = decltype(ocd_text_special.line_below_width)(convertSize(qRound(1000 * text_symbol->getLineBelowWidth())));
-	ocd_text_special.line_below_offset = decltype(ocd_text_special.line_below_offset)(convertSize(qRound(1000 * text_symbol->getLineBelowDistance())));
+	convertSize(qRound(1000 * text_symbol->getLineBelowWidth()), ocd_text_special.line_below_width);
+	convertSize(qRound(1000 * text_symbol->getLineBelowDistance()), ocd_text_special.line_below_offset);
 	
 	ocd_text_special.num_tabs = text_symbol->getNumCustomTabs();
 	auto max_tabs = decltype(ocd_text_special.num_tabs)(std::extent<typename std::remove_pointer<decltype(ocd_text_special.tab_pos)>::type>::value);
@@ -1957,7 +1961,7 @@ void OcdFileExport::setupTextSymbolSpecial(const TextSymbol* text_symbol, OcdTex
 		           .arg(text_symbol->getPlainTextName()).arg(max_tabs));
 	}
 	for (auto i = 0u; i < ocd_text_special.num_tabs; ++i)
-		ocd_text_special.tab_pos[i] = convertSize(text_symbol->getCustomTab(i));
+		convertSize(text_symbol->getCustomTab(i), ocd_text_special.tab_pos[i]);
 }
 
 
@@ -1975,12 +1979,12 @@ void OcdFileExport::setupTextSymbolFraming(const TextSymbol* text_symbol, OcdTex
 			break;
 		case TextSymbol::ShadowFraming:
 			ocd_text_framing.mode = 1;
-			ocd_text_framing.offset_x = convertSize(text_symbol->getFramingShadowXOffset());
+			convertSize(text_symbol->getFramingShadowXOffset(), ocd_text_framing.offset_x);
 			ocd_text_framing.offset_y = -convertSize(text_symbol->getFramingShadowYOffset());
 			break;
 		case TextSymbol::LineFraming:
 			ocd_text_framing.mode = 2;
-			ocd_text_framing.line_width = convertSize(text_symbol->getFramingLineHalfWidth());
+			convertSize(text_symbol->getFramingLineHalfWidth(), ocd_text_framing.line_width);
 			break;
 		}
 	}
@@ -2403,7 +2407,7 @@ QByteArray OcdFileExport::exportCombinedLineSymbol(
 	if (framing)
 	{
 		ocd_line_common.framing_color = convertColor(framing->getColor());
-		ocd_line_common.framing_width = convertSize(framing->getLineWidth());
+		convertSize(framing->getLineWidth(), ocd_line_common.framing_width);
 		// Cap and Join
 		if (framing->getCapStyle() == LineSymbol::FlatCap && framing->getJoinStyle() == LineSymbol::BevelJoin)
 			ocd_line_common.framing_style = 0;
@@ -2514,7 +2518,7 @@ QByteArray OcdFileExport::exportPointObject(const PointObject* point, typename O
 	OcdObject ocd_object = {};
 	ocd_object.type = 1;
 	ocd_object.symbol = entry.symbol = decltype(entry.symbol)(symbol_numbers[point->getSymbol()]);
-	ocd_object.angle = decltype(ocd_object.angle)(convertRotation(point->getRotation()));
+	convertRotation(point->getRotation(), ocd_object.angle);
 	return exportObjectCommon(point, ocd_object, entry);
 }
 
@@ -2535,7 +2539,7 @@ void OcdFileExport::exportPathObject(OcdFile<Format>& file, const PathObject* pa
 		if (symbol->getType() == Symbol::Area)
 		{
 			if (static_cast<const AreaSymbol*>(symbol)->hasRotatableFillPattern())
-				ocd_object.angle = decltype(ocd_object.angle)(convertRotation(path->getPatternRotation()));
+				convertRotation(path->getPatternRotation(), ocd_object.angle);
 			if (path->getPatternOrigin() != MapCoord(0, 0))
 				addWarning(::OpenOrienteering::OcdFileExport::tr("Unable to export fill pattern shift for an area object"));
 		}
@@ -2630,7 +2634,7 @@ QByteArray OcdFileExport::exportTextObject(const TextObject* text, typename OcdO
 	OcdObject ocd_object = {};
 	ocd_object.type = text->hasSingleAnchor() ? 4 : 5;
 	ocd_object.symbol = entry.symbol = decltype(entry.symbol)(text_format->symbol_number);
-	ocd_object.angle = decltype(ocd_object.angle)(convertRotation(text->getRotation()));
+	convertRotation(text->getRotation(), ocd_object.angle);
 	return exportObjectCommon(text, ocd_object, entry);
 }
 
