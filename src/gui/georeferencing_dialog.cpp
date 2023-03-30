@@ -50,7 +50,7 @@
 #include <QSignalBlocker>
 #include <QSize>
 #include <QSpacerItem>
-#include <QStringRef>
+#include <QStringView>
 #include <QTimer>
 #include <QUrl>
 #include <QUrlQuery>

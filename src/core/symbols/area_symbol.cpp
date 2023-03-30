@@ -28,7 +28,7 @@
 
 #include <QtMath>
 #include <QLatin1String>
-#include <QStringRef>
+#include <QStringView>
 #include <QXmlStreamReader> // IWYU pragma: keep
 
 #include "core/map.h"
@@ -769,6 +769,7 @@ qreal AreaSymbol::dimensionForIcon() const
 
 
 // override
+// TODO check what this function returns in case there are no fill patterns
 bool AreaSymbol::hasRotatableFillPattern() const
 {
 	return std::any_of(begin(patterns), end(patterns), [](auto& pattern){

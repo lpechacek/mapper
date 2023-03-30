@@ -63,16 +63,20 @@ void TouchCursor::mousePressEvent(QMouseEvent* event)
 		
 		updateMapWidget(false);
 		
-		*event = QMouseEvent(
+		event->accept();
+		auto synthetic_event = new QMouseEvent(
 			QEvent::MouseMove, cursor_pos,
 			Qt::NoButton, event->buttons() & ~Qt::LeftButton, event->modifiers());
+		QCoreApplication::sendEvent(qApp->instance(), synthetic_event);
 		last_pressed_button = NoButton;
 	}
 	else if (control_id == LeftButton)
 	{
-		*event = QMouseEvent(
+		event->accept();
+		auto synthetic_event = new QMouseEvent(
 			QEvent::MouseButtonPress, map_widget->mapToViewport(cursor_coord),
 			event->button(), event->buttons(), event->modifiers());
+		QCoreApplication::sendEvent(qApp->instance(), synthetic_event);		
 		left_button_pressed = true;
 		last_pressed_button = LeftButton;
 		
@@ -103,11 +107,13 @@ bool TouchCursor::mouseMoveEvent(QMouseEvent* event)
 	last_cursor_pos = cursor_pos;
 	cursor_coord = map_widget->viewportToMapF(cursor_pos);
 		
-	*event = QMouseEvent(
+	event->accept();
+	auto synthetic_event = new QMouseEvent(
 		QEvent::MouseMove, cursor_pos,
 		left_button_pressed ? event->button() : Qt::NoButton,
 		left_button_pressed ? event->buttons() : (event->buttons() & ~Qt::LeftButton),
 		event->modifiers());
+	QCoreApplication::sendEvent(qApp->instance(), synthetic_event);		
 	
 	updateMapWidget(true);
 	return true;
@@ -120,9 +126,11 @@ bool TouchCursor::mouseReleaseEvent(QMouseEvent* event)
 	
 	if (left_button_pressed)
 	{
-		*event = QMouseEvent(
+		event->accept();
+		auto synthetic_event = new QMouseEvent(
 			QEvent::MouseButtonRelease, map_widget->mapToViewport(cursor_coord),
 			event->button(), event->buttons(), event->modifiers());
+		QCoreApplication::sendEvent(qApp->instance(), synthetic_event);		
 		left_button_pressed = false;
 		return true;
 	}
@@ -134,9 +142,11 @@ bool TouchCursor::mouseDoubleClickEvent(QMouseEvent* event)
 {
 	if (last_pressed_button == LeftButton)
 	{
-		*event = QMouseEvent(
+		event->accept();
+		auto synthetic_event = new QMouseEvent(
 			QEvent::MouseButtonDblClick, map_widget->mapToViewport(cursor_coord),
 			event->button(), event->buttons(), event->modifiers());
+		QCoreApplication::sendEvent(qApp->instance(), synthetic_event);		
 		return true;
 	}
 	else

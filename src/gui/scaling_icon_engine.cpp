@@ -163,13 +163,13 @@ QString ScalingIconEngine::key() const
 }
 
 // override
-QList<QSize> ScalingIconEngine::availableSizes(QIcon::Mode mode, QIcon::State state) const
+QList<QSize> ScalingIconEngine::availableSizes(QIcon::Mode mode, QIcon::State state)
 {
 	return icon.availableSizes(mode, state);
 }
 
 // override
-QString  ScalingIconEngine::iconName() const
+QString  ScalingIconEngine::iconName()
 {
 	return icon.name();
 }

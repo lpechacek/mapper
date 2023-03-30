@@ -535,7 +535,10 @@ class CompassPrivate
 
 
 // Emit vtable once, in this translation unit
-Compass::~Compass() = default;
+Compass::~Compass()
+{
+	delete p;
+}
 
 Compass& Compass::getInstance()
 {

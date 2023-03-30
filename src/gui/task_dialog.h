@@ -99,7 +99,7 @@ public:
 	}
 	
 private slots:
-	void buttonClicked(QWidget* button);
+	void buttonClicked(QObject* button);
 	void buttonClicked(QAbstractButton* button);
 	
 private:

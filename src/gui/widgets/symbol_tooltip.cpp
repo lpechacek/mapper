@@ -25,7 +25,6 @@
 #include <QtGlobal>
 #include <QApplication>
 #include <QCursor>
-#include <QDesktopWidget>
 #include <QHideEvent>
 #include <QLabel>
 #include <QLatin1Char>
@@ -116,7 +115,7 @@ void SymbolToolTip::reset()
 		shortcut->setEnabled(false);
 }
 
-void SymbolToolTip::enterEvent(QEvent* event)
+void SymbolToolTip::enterEvent(QEnterEvent* event)
 {
 	Q_UNUSED(event);
     hide();
@@ -140,7 +139,7 @@ void SymbolToolTip::paintEvent(QPaintEvent* event)
 void SymbolToolTip::adjustPosition(bool mobile_mode)
 {
 	auto size = this->size();
-	auto desktop = QApplication::desktop()->screenGeometry(QCursor::pos());
+	auto desktop = QGuiApplication::screenAt(QCursor::pos())->availableGeometry();
 	
 	const int margin = 3;
 	bool has_room_to_left  = (icon_rect.left()   - size.width()  - margin >= desktop.left());

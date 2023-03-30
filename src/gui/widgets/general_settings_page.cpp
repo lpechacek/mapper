@@ -53,8 +53,8 @@
 #include <QSpacerItem>
 #include <QSpinBox>
 #include <QStringList>
-#include <QTextCodec>
 #include <QToolButton>
+#include <QTextCodec>
 #include <QVBoxLayout>
 #include <QWidget>
 

@@ -83,7 +83,7 @@ namespace {
 using PathObjects = BooleanTool::PathObjects;
 
 using PathCoordInfo = std::pair<const PathPart*, const PathCoord*>;
-using PolyMap = QHash<ClipperLib::IntPoint, PathCoordInfo>;
+using PolyMap = QMultiHash<ClipperLib::IntPoint, PathCoordInfo>;
 
 /**
  * Converts a ClipperLib::PolyTree to PathObjects.
@@ -265,7 +265,7 @@ bool BooleanTool::execute()
 	}
 	
 	// Perform the core operation
-	QScopedPointer<CombinedUndoStep> undo_step(new CombinedUndoStep(map));
+	auto undo_step = std::make_unique<CombinedUndoStep>(map);
 	PathObjects out_objects;
 	if (!executeForObjects(primary_object->asPath(), in_objects, out_objects, *undo_step))
 	{
@@ -273,7 +273,7 @@ bool BooleanTool::execute()
 		return false; // in release build
 	}
 	
-	map->push(undo_step.take());
+	map->push(undo_step.release());
 	map->setObjectsDirty();
 	map->emitSelectionChanged();
 	map->emitSelectionEdited();
@@ -292,7 +292,7 @@ bool BooleanTool::executePerSymbol()
 			backlog.push_back(object->asPath());
 	}
 	
-	QScopedPointer<CombinedUndoStep> undo_step(new CombinedUndoStep(map));
+	auto undo_step = std::make_unique<CombinedUndoStep>(map);
 	PathObjects new_backlog;
 	new_backlog.reserve(backlog.size()/2);
 	PathObjects in_objects;
@@ -334,7 +334,7 @@ bool BooleanTool::executePerSymbol()
 	bool const have_changes = undo_step->getNumSubSteps() > 0;
 	if (have_changes)
 	{
-		map->push(undo_step.take());
+		map->push(undo_step.release());
 		map->setObjectsDirty();
 		map->emitSelectionChanged();
 		map->emitSelectionEdited();
@@ -351,7 +351,7 @@ bool BooleanTool::executeForObjects(const PathObject* subject, const PathObjects
 	}
 	
 	// Add original objects to undo step, and remove them from map.
-	QScopedPointer<AddObjectsUndoStep> add_step(new AddObjectsUndoStep(map));
+	auto add_step = std::make_unique<AddObjectsUndoStep>(map);
 	for (PathObject* object : in_objects)
 	{
 		if (op != Difference || object == subject)
@@ -371,7 +371,7 @@ bool BooleanTool::executeForObjects(const PathObject* subject, const PathObjects
 	}
 	
 	// Add resulting objects to map, and create delete step for them
-	QScopedPointer<DeleteObjectsUndoStep> delete_step(new DeleteObjectsUndoStep(map));
+	auto delete_step = std::make_unique<DeleteObjectsUndoStep>(map);
 	MapPart* part = map->getCurrentPart();
 	for (PathObject* object : out_objects)
 	{
@@ -384,8 +384,8 @@ bool BooleanTool::executeForObjects(const PathObject* subject, const PathObjects
 		delete_step->addObject(part->findObjectIndex(object));
 	}
 	
-	undo_step.push(add_step.take());
-	undo_step.push(delete_step.take());
+	undo_step.push(add_step.release());
+	undo_step.push(delete_step.release());
 	return true;
 }
 
@@ -596,7 +596,7 @@ void pathObjectToPolygons(
 				auto point = MapCoord { path_coord.pos };
 				polygon.push_back(ClipperLib::IntPoint(point.nativeX(), point.nativeY()));
 			}
-			polymap.insertMulti(polygon.back(), std::make_pair(&part, &path_coord));
+			polymap.insert(polygon.back(), std::make_pair(&part, &path_coord));
 		}
 		
 		bool orientation = Orientation(polygon);

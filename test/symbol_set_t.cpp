@@ -43,7 +43,7 @@
 #include <QPrinter>
 #include <QRectF>
 #include <QStringList>
-#include <QStringRef>
+#include <QStringView>
 #include <QTextStream>
 #include <QXmlStreamAttributes>
 #include <QXmlStreamReader>

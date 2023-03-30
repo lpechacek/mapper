@@ -16,8 +16,7 @@
 #    You should have received a copy of the GNU General Public License
 #    along with OpenOrienteering.  If not, see <http://www.gnu.org/licenses/>.
  
-find_package(Qt5Widgets REQUIRED)
-find_package(Qt5Network REQUIRED)
+find_package(Qt6 COMPONENTS Widgets Network REQUIRED)
 
 set(CMAKE_AUTOMOC ON)
 set(CMAKE_CXX_CLANG_TIDY "")
@@ -39,6 +38,6 @@ target_include_directories(QtSingleApplication
 )
 
 target_link_libraries(QtSingleApplication
-  PUBLIC Qt5::Widgets
-  PUBLIC Qt5::Network
+  PUBLIC Qt::Widgets
+  PUBLIC Qt::Network
 )
