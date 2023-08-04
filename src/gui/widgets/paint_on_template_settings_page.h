@@ -23,6 +23,7 @@
 #include <functional>
 #include <vector>
 
+#include <QCheckBox>
 #include <QObject>
 #include <QString>
 
@@ -65,6 +66,7 @@ protected:
 	QToolButton* edit_button;
 	QToolButton* move_up_button;
 	QToolButton* move_down_button;
+	QCheckBox* use_antialiasing;
 
 	void initializePage(const std::vector<QColor>& working_colors);
 	void applyPresets();
