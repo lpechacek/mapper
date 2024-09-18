@@ -4,14 +4,14 @@
 <context>
     <name>ISOM 2017-2</name>
     <message>
-        <source>Purple for course overprint</source>
+        <source>Upper purple for course overprint</source>
         <comment>Color 0</comment>
-        <translation>賽程套印的紫紅色</translation>
+        <translation type="unfinished">賽程套印的紫紅色</translation>
     </message>
     <message>
-        <source>White for course overprint</source>
+        <source>White for railroad</source>
         <comment>Color 1</comment>
-        <translation>賽程套印的白色</translation>
+        <translation type="unfinished">賽程套印的白色</translation>
     </message>
     <message>
         <source>Black 100%</source>
@@ -19,164 +19,159 @@
         <translation>100%的黑色</translation>
     </message>
     <message>
-        <source>Green 100%</source>
+        <source>Blue 100% point symbols</source>
         <comment>Color 3</comment>
-        <translation>100%的綠色</translation>
+        <translation type="unfinished">100%的綠色</translation>
     </message>
     <message>
-        <source>White for railway</source>
+        <source>Brown 100% point symbols</source>
         <comment>Color 4</comment>
-        <translation>鐵道的白色</translation>
+        <translation type="unfinished">鐵道的白色</translation>
     </message>
     <message>
-        <source>Blue 100%</source>
+        <source>Green 100% point symbols</source>
         <comment>Color 5</comment>
-        <translation>100%的藍色</translation>
+        <translation type="unfinished">100%的藍色</translation>
     </message>
     <message>
-        <source>Brown 100%</source>
+        <source>Blue 100% line symbols</source>
         <comment>Color 6</comment>
-        <translation>100%的棕色</translation>
+        <translation type="unfinished">100%的棕色</translation>
     </message>
     <message>
-        <source>Purple for track symbols</source>
+        <source>Dark green line symbols</source>
         <comment>Color 7</comment>
-        <translation>路徑圖例的紫紅色</translation>
+        <translation type="unfinished">100%的綠色/50%的黑色</translation>
     </message>
     <message>
-        <source>Black below purple for track symbols</source>
+        <source>Brown 100% line symbols</source>
         <comment>Color 8</comment>
-        <translation>紫紅色軌跡圖例下方的黑色</translation>
+        <translation type="unfinished">紫紅色軌跡圖例下方的黑色</translation>
     </message>
     <message>
-        <source>Black 50%</source>
+        <source>Lower purple for course overprint</source>
         <comment>Color 9</comment>
         <translation type="unfinished">65%的黑色</translation>
     </message>
     <message>
-        <source>Black 20%</source>
+        <source>Brown 50% for road infill</source>
         <comment>Color 10</comment>
-        <translation>20%的黑色</translation>
+        <translation type="unfinished">20%的黑色</translation>
     </message>
     <message>
-        <source>Upper brown 50%</source>
+        <source>Black 100% for road outline</source>
         <comment>Color 11</comment>
-        <translation>較上層之50%的棕色</translation>
+        <translation type="unfinished">較上層之50%的棕色</translation>
     </message>
     <message>
-        <source>Black below upper brown 50%</source>
+        <source>Black 50% for large buildings and tramway</source>
         <comment>Color 12</comment>
-        <translation>上層50%的棕色之下方的黑色</translation>
+        <translation type="unfinished">上層50%的棕色之下方的黑色</translation>
     </message>
     <message>
-        <source>Lower brown 50%</source>
+        <source>Black 20% for canopy</source>
         <comment>Color 13</comment>
-        <translation>較下層50%的棕色</translation>
+        <translation type="unfinished">較下層50%的棕色</translation>
     </message>
     <message>
-        <source>Black below lower brown 50%</source>
+        <source>Blue 100% area symbols</source>
         <comment>Color 14</comment>
-        <translation>下層50%的棕色之下方的黑色</translation>
+        <translation type="unfinished">下層50%的棕色之下方的黑色</translation>
     </message>
     <message>
-        <source>Blue 100% for area features</source>
+        <source>Blue 70% area symbols</source>
         <comment>Color 15</comment>
-        <translation>區塊特徵之100%的藍色</translation>
+        <translation type="unfinished">區塊特徵之100%的藍色</translation>
     </message>
     <message>
-        <source>Blue 70%</source>
+        <source>Blue 50% area symbols</source>
         <comment>Color 16</comment>
-        <translation>70%的藍色</translation>
+        <translation type="unfinished">70%的藍色</translation>
     </message>
     <message>
-        <source>Blue 50%</source>
+        <source>White over green and brown (+ yellow)</source>
         <comment>Color 17</comment>
-        <translation>50%的藍色</translation>
+        <translation type="unfinished">50%的藍色</translation>
     </message>
     <message>
-        <source>OpenOrienteering Orange</source>
+        <source>Brown 50% for paved area</source>
         <comment>Color 18</comment>
-        <translation>OpenOrienteering的橙色</translation>
+        <translation type="unfinished">OpenOrienteering的橙色</translation>
     </message>
     <message>
-        <source>Yellow 100% for narrow ride</source>
+        <source>Yellow 100% for narrow ride (extra)</source>
         <comment>Color 19</comment>
-        <translation>狹窄通道之100%的黃色</translation>
+        <translation type="unfinished">狹窄通道之100%的黃色</translation>
     </message>
     <message>
-        <source>Green 60% for narrow ride</source>
+        <source>Green 60% for narrow ride (extra)</source>
         <comment>Color 20</comment>
-        <translation>狹窄通道之60%的綠色</translation>
+        <translation type="unfinished">狹窄通道之60%的綠色</translation>
     </message>
     <message>
-        <source>Green 30% for narrow ride</source>
+        <source>Green 30% for narrow ride (extra)</source>
         <comment>Color 21</comment>
-        <translation>狹窄通道之30%的綠色</translation>
+        <translation type="unfinished">狹窄通道之30%的綠色</translation>
     </message>
     <message>
-        <source>White over green</source>
+        <source>Yellow 100% + Green 50%</source>
         <comment>Color 22</comment>
-        <translation>綠色上層的白色</translation>
+        <translation type="unfinished">綠色上層的白色</translation>
     </message>
     <message>
-        <source>Yellow 100%/Green 50%</source>
+        <source>Green 100% area symbols</source>
         <comment>Color 23</comment>
-        <translation>100%的黃色/50%的綠色</translation>
+        <translation type="unfinished">100%的黃色/50%的綠色</translation>
     </message>
     <message>
-        <source>Black 35% (Grey)</source>
+        <source>Green 60% area symbols</source>
         <comment>Color 24</comment>
         <translation type="unfinished">25%的黑色(灰色)</translation>
     </message>
     <message>
-        <source>Dark green line symbols </source>
+        <source>Green 30% area symbols</source>
         <comment>Color 25</comment>
         <translation type="unfinished">100%的綠色/50%的黑色</translation>
     </message>
     <message>
-        <source>Green 100% for area features</source>
+        <source>Black 35% area symbols</source>
         <comment>Color 26</comment>
-        <translation>區塊特徵100%的綠色</translation>
+        <translation type="unfinished">區塊特徵100%的綠色</translation>
     </message>
     <message>
-        <source>Green 60%</source>
+        <source>Green 100% below green areas (extra)</source>
         <comment>Color 27</comment>
-        <translation>60%的綠色</translation>
-    </message>
-    <message>
-        <source>Green 30%</source>
-        <comment>Color 28</comment>
-        <translation>30%的綠色</translation>
-    </message>
-    <message>
-        <source>Green 100% for undergrowth</source>
-        <comment>Color 29</comment>
-        <translation>底層植被100%的綠色</translation>
+        <translation type="unfinished">60%的綠色</translation>
     </message>
     <message>
         <source>White over yellow</source>
-        <comment>Color 30</comment>
+        <comment>Color 28</comment>
         <translation>黃色上層的白色</translation>
     </message>
     <message>
-        <source>Black for open land</source>
+        <source>Black for cultivated land and sandy ground</source>
+        <comment>Color 29</comment>
+        <translation type="unfinished">底層植被100%的綠色</translation>
+    </message>
+    <message>
+        <source>Yellow 100% area symbols</source>
+        <comment>Color 30</comment>
+        <translation type="unfinished">黃色上層的白色</translation>
+    </message>
+    <message>
+        <source>Yellow 75% area symbols</source>
         <comment>Color 31</comment>
-        <translation>開闊地的黑色</translation>
-    </message>
-    <message>
-        <source>Yellow</source>
-        <comment>Color 32</comment>
-        <translation>黃色</translation>
-    </message>
-    <message>
-        <source>Yellow 100% for area features</source>
-        <comment>Color 33</comment>
-        <translation>區塊特徵100%的黃色</translation>
+        <translation type="unfinished">開闊地的黑色</translation>
     </message>
     <message>
         <source>Yellow 50%</source>
-        <comment>Color 34</comment>
+        <comment>Color 32</comment>
         <translation>50%的黃色</translation>
+    </message>
+    <message>
+        <source>OpenOrienteering Orange (extra)</source>
+        <comment>Color 33</comment>
+        <translation type="unfinished">區塊特徵100%的黃色</translation>
     </message>
     <message>
         <source>Contour</source>
@@ -2560,6 +2555,211 @@ The purple line will extend a bit into the finish symbol. This is a shortcoming 
         <source>The OpenOrienteering Logo.</source>
         <comment>Description of symbol 999</comment>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>White over green and brown</source>
+        <comment>Color 17</comment>
+        <translation type="obsolete">50%的藍色</translation>
+    </message>
+    <message>
+        <source>Brown 100% point symbols </source>
+        <comment>Color 4</comment>
+        <translation type="obsolete">鐵道的白色</translation>
+    </message>
+    <message>
+        <source>Dark green line symbols </source>
+        <comment>Color 7</comment>
+        <translation type="obsolete">100%的綠色/50%的黑色</translation>
+    </message>
+    <message>
+        <source>Brown 100% line symbols </source>
+        <comment>Color 8</comment>
+        <translation type="obsolete">紫紅色軌跡圖例下方的黑色</translation>
+    </message>
+    <message>
+        <source>Yellow 100% + Green 50% </source>
+        <comment>Color 22</comment>
+        <translation type="obsolete">綠色上層的白色</translation>
+    </message>
+    <message>
+        <source>Black for cultivated land and sandy ground </source>
+        <comment>Color 29</comment>
+        <translation type="obsolete">底層植被100%的綠色</translation>
+    </message>
+    <message>
+        <source>Green 100% bellow green areas (extra)</source>
+        <comment>Color 27</comment>
+        <translation type="obsolete">60%的綠色</translation>
+    </message>
+    <message>
+        <source>Purple for course overprint</source>
+        <comment>Color 0</comment>
+        <translation type="obsolete">賽程套印的紫紅色</translation>
+    </message>
+    <message>
+        <source>White for course overprint</source>
+        <comment>Color 1</comment>
+        <translation type="obsolete">賽程套印的白色</translation>
+    </message>
+    <message>
+        <source>Green 100%</source>
+        <comment>Color 3</comment>
+        <translation type="obsolete">100%的綠色</translation>
+    </message>
+    <message>
+        <source>White for railway</source>
+        <comment>Color 4</comment>
+        <translation type="obsolete">鐵道的白色</translation>
+    </message>
+    <message>
+        <source>Blue 100%</source>
+        <comment>Color 5</comment>
+        <translation type="obsolete">100%的藍色</translation>
+    </message>
+    <message>
+        <source>Brown 100%</source>
+        <comment>Color 6</comment>
+        <translation type="obsolete">100%的棕色</translation>
+    </message>
+    <message>
+        <source>Purple for track symbols</source>
+        <comment>Color 7</comment>
+        <translation type="obsolete">路徑圖例的紫紅色</translation>
+    </message>
+    <message>
+        <source>Black below purple for track symbols</source>
+        <comment>Color 8</comment>
+        <translation type="obsolete">紫紅色軌跡圖例下方的黑色</translation>
+    </message>
+    <message>
+        <source>Black 50%</source>
+        <comment>Color 9</comment>
+        <translation type="obsolete">65%的黑色</translation>
+    </message>
+    <message>
+        <source>Black 20%</source>
+        <comment>Color 10</comment>
+        <translation type="obsolete">20%的黑色</translation>
+    </message>
+    <message>
+        <source>Upper brown 50%</source>
+        <comment>Color 11</comment>
+        <translation type="obsolete">較上層之50%的棕色</translation>
+    </message>
+    <message>
+        <source>Black below upper brown 50%</source>
+        <comment>Color 12</comment>
+        <translation type="obsolete">上層50%的棕色之下方的黑色</translation>
+    </message>
+    <message>
+        <source>Lower brown 50%</source>
+        <comment>Color 13</comment>
+        <translation type="obsolete">較下層50%的棕色</translation>
+    </message>
+    <message>
+        <source>Black below lower brown 50%</source>
+        <comment>Color 14</comment>
+        <translation type="obsolete">下層50%的棕色之下方的黑色</translation>
+    </message>
+    <message>
+        <source>Blue 100% for area features</source>
+        <comment>Color 15</comment>
+        <translation type="obsolete">區塊特徵之100%的藍色</translation>
+    </message>
+    <message>
+        <source>Blue 70%</source>
+        <comment>Color 16</comment>
+        <translation type="obsolete">70%的藍色</translation>
+    </message>
+    <message>
+        <source>Blue 50%</source>
+        <comment>Color 17</comment>
+        <translation type="obsolete">50%的藍色</translation>
+    </message>
+    <message>
+        <source>OpenOrienteering Orange</source>
+        <comment>Color 18</comment>
+        <translation type="obsolete">OpenOrienteering的橙色</translation>
+    </message>
+    <message>
+        <source>Yellow 100% for narrow ride</source>
+        <comment>Color 19</comment>
+        <translation type="obsolete">狹窄通道之100%的黃色</translation>
+    </message>
+    <message>
+        <source>Green 60% for narrow ride</source>
+        <comment>Color 20</comment>
+        <translation type="obsolete">狹窄通道之60%的綠色</translation>
+    </message>
+    <message>
+        <source>Green 30% for narrow ride</source>
+        <comment>Color 21</comment>
+        <translation type="obsolete">狹窄通道之30%的綠色</translation>
+    </message>
+    <message>
+        <source>White over green</source>
+        <comment>Color 22</comment>
+        <translation type="obsolete">綠色上層的白色</translation>
+    </message>
+    <message>
+        <source>Yellow 100%/Green 50%</source>
+        <comment>Color 23</comment>
+        <translation type="obsolete">100%的黃色/50%的綠色</translation>
+    </message>
+    <message>
+        <source>Black 35% (Grey)</source>
+        <comment>Color 24</comment>
+        <translation type="obsolete">25%的黑色(灰色)</translation>
+    </message>
+    <message>
+        <source>Dark green line symbols </source>
+        <comment>Color 25</comment>
+        <translation type="obsolete">100%的綠色/50%的黑色</translation>
+    </message>
+    <message>
+        <source>Green 100% for area features</source>
+        <comment>Color 26</comment>
+        <translation type="obsolete">區塊特徵100%的綠色</translation>
+    </message>
+    <message>
+        <source>Green 60%</source>
+        <comment>Color 27</comment>
+        <translation type="obsolete">60%的綠色</translation>
+    </message>
+    <message>
+        <source>Green 30%</source>
+        <comment>Color 28</comment>
+        <translation type="obsolete">30%的綠色</translation>
+    </message>
+    <message>
+        <source>Green 100% for undergrowth</source>
+        <comment>Color 29</comment>
+        <translation type="obsolete">底層植被100%的綠色</translation>
+    </message>
+    <message>
+        <source>White over yellow</source>
+        <comment>Color 30</comment>
+        <translation type="obsolete">黃色上層的白色</translation>
+    </message>
+    <message>
+        <source>Black for open land</source>
+        <comment>Color 31</comment>
+        <translation type="obsolete">開闊地的黑色</translation>
+    </message>
+    <message>
+        <source>Yellow</source>
+        <comment>Color 32</comment>
+        <translation type="obsolete">黃色</translation>
+    </message>
+    <message>
+        <source>Yellow 100% for area features</source>
+        <comment>Color 33</comment>
+        <translation type="obsolete">區塊特徵100%的黃色</translation>
+    </message>
+    <message>
+        <source>Yellow 50%</source>
+        <comment>Color 34</comment>
+        <translation type="obsolete">50%的黃色</translation>
     </message>
     <message>
         <source>Black 65%</source>
@@ -7237,184 +7437,324 @@ Note: if the stream is wider than 0.25mm, adjust this symbol so it extends 0.5mm
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Black 100%</source>
+        <source>Upper purple for course overprint</source>
         <comment>Color 3</comment>
-        <translation>100%的黑色</translation>
+        <translation type="unfinished">賽程套印的紫紅色</translation>
+    </message>
+    <message>
+        <source>White for railroad</source>
+        <comment>Color 4</comment>
+        <translation type="unfinished">賽程套印的白色</translation>
+    </message>
+    <message>
+        <source>Black 100%</source>
+        <comment>Color 5</comment>
+        <translation type="unfinished">100%的黑色</translation>
     </message>
     <message>
         <source>Green 100%</source>
-        <comment>Color 4</comment>
-        <translation>100%的綠色</translation>
+        <comment>Color 6</comment>
+        <translation type="unfinished">100%的綠色</translation>
     </message>
     <message>
         <source>White for railway</source>
-        <comment>Color 5</comment>
-        <translation>鐵道的白色</translation>
+        <comment>Color 7</comment>
+        <translation type="unfinished">鐵道的白色</translation>
     </message>
     <message>
         <source>Blue 100%</source>
-        <comment>Color 6</comment>
-        <translation>100%的藍色</translation>
+        <comment>Color 8</comment>
+        <translation type="unfinished">100%的藍色</translation>
     </message>
     <message>
         <source>Brown 100%</source>
-        <comment>Color 7</comment>
-        <translation>100%的棕色</translation>
+        <comment>Color 9</comment>
+        <translation type="unfinished">100%的棕色</translation>
     </message>
     <message>
         <source>Purple for track symbols</source>
-        <comment>Color 8</comment>
-        <translation>路徑圖例的紫紅色</translation>
+        <comment>Color 10</comment>
+        <translation type="unfinished">路徑圖例的紫紅色</translation>
     </message>
     <message>
         <source>Black below purple for track symbols</source>
-        <comment>Color 9</comment>
-        <translation>紫紅色軌跡圖例下方的黑色</translation>
+        <comment>Color 11</comment>
+        <translation type="unfinished">紫紅色軌跡圖例下方的黑色</translation>
     </message>
     <message>
         <source>Black 65%</source>
-        <comment>Color 10</comment>
-        <translation type="unfinished">65%的黑色</translation>
-    </message>
-    <message>
-        <source>Black 50%</source>
-        <comment>Color 11</comment>
+        <comment>Color 12</comment>
         <translation type="unfinished">65%的黑色</translation>
     </message>
     <message>
         <source>Black 20%</source>
-        <comment>Color 12</comment>
-        <translation>20%的黑色</translation>
+        <comment>Color 13</comment>
+        <translation type="unfinished">20%的黑色</translation>
     </message>
     <message>
         <source>Upper brown 50%</source>
-        <comment>Color 13</comment>
-        <translation>較上層之50%的棕色</translation>
+        <comment>Color 14</comment>
+        <translation type="unfinished">較上層之50%的棕色</translation>
     </message>
     <message>
         <source>Black below upper brown 50%</source>
-        <comment>Color 14</comment>
-        <translation>上層50%的棕色之下方的黑色</translation>
+        <comment>Color 15</comment>
+        <translation type="unfinished">上層50%的棕色之下方的黑色</translation>
     </message>
     <message>
         <source>Lower brown 50%</source>
-        <comment>Color 15</comment>
-        <translation>較下層50%的棕色</translation>
+        <comment>Color 16</comment>
+        <translation type="unfinished">較下層50%的棕色</translation>
     </message>
     <message>
         <source>Black below lower brown 50%</source>
-        <comment>Color 16</comment>
-        <translation>下層50%的棕色之下方的黑色</translation>
+        <comment>Color 17</comment>
+        <translation type="unfinished">下層50%的棕色之下方的黑色</translation>
     </message>
     <message>
         <source>Blue 100% for area features</source>
-        <comment>Color 17</comment>
-        <translation>區塊特徵之100%的藍色</translation>
+        <comment>Color 18</comment>
+        <translation type="unfinished">區塊特徵之100%的藍色</translation>
     </message>
     <message>
         <source>Blue 70%</source>
-        <comment>Color 18</comment>
-        <translation>70%的藍色</translation>
+        <comment>Color 19</comment>
+        <translation type="unfinished">70%的藍色</translation>
     </message>
     <message>
         <source>Blue 50%</source>
-        <comment>Color 19</comment>
-        <translation>50%的藍色</translation>
+        <comment>Color 20</comment>
+        <translation type="unfinished">50%的藍色</translation>
     </message>
     <message>
         <source>OpenOrienteering Orange</source>
-        <comment>Color 20</comment>
-        <translation>OpenOrienteering的橙色</translation>
+        <comment>Color 21</comment>
+        <translation type="unfinished">OpenOrienteering的橙色</translation>
     </message>
     <message>
         <source>Yellow 100% for narrow ride</source>
-        <comment>Color 21</comment>
-        <translation>狹窄通道之100%的黃色</translation>
+        <comment>Color 22</comment>
+        <translation type="unfinished">狹窄通道之100%的黃色</translation>
     </message>
     <message>
         <source>Green 60% for narrow ride</source>
-        <comment>Color 22</comment>
-        <translation>狹窄通道之60%的綠色</translation>
+        <comment>Color 23</comment>
+        <translation type="unfinished">狹窄通道之60%的綠色</translation>
     </message>
     <message>
         <source>Green 30% for narrow ride</source>
-        <comment>Color 23</comment>
-        <translation>狹窄通道之30%的綠色</translation>
+        <comment>Color 24</comment>
+        <translation type="unfinished">狹窄通道之30%的綠色</translation>
     </message>
     <message>
         <source>White over green</source>
-        <comment>Color 24</comment>
-        <translation>綠色上層的白色</translation>
+        <comment>Color 25</comment>
+        <translation type="unfinished">綠色上層的白色</translation>
     </message>
     <message>
         <source>Yellow 100%/Green 50%</source>
-        <comment>Color 25</comment>
-        <translation>100%的黃色/50%的綠色</translation>
+        <comment>Color 26</comment>
+        <translation type="unfinished">100%的黃色/50%的綠色</translation>
     </message>
     <message>
         <source>Black 25% (Grey)</source>
-        <comment>Color 26</comment>
+        <comment>Color 27</comment>
         <translation type="unfinished">25%的黑色(灰色)</translation>
     </message>
     <message>
         <source>Green 100%/Black 50%</source>
-        <comment>Color 27</comment>
-        <translation type="unfinished">100%的綠色/50%的黑色</translation>
-    </message>
-    <message>
-        <source>Black 35% (Grey)</source>
         <comment>Color 28</comment>
-        <translation type="unfinished">25%的黑色(灰色)</translation>
+        <translation type="unfinished">100%的綠色/50%的黑色</translation>
     </message>
     <message>
         <source>Green 100% for area features</source>
         <comment>Color 29</comment>
-        <translation>區塊特徵100%的綠色</translation>
+        <translation type="unfinished">區塊特徵100%的綠色</translation>
     </message>
     <message>
         <source>Green 60%</source>
         <comment>Color 30</comment>
-        <translation>60%的綠色</translation>
+        <translation type="unfinished">60%的綠色</translation>
     </message>
     <message>
         <source>Green 30%</source>
         <comment>Color 31</comment>
-        <translation>30%的綠色</translation>
+        <translation type="unfinished">30%的綠色</translation>
     </message>
     <message>
         <source>Green 100% for undergrowth</source>
         <comment>Color 32</comment>
-        <translation>底層植被100%的綠色</translation>
+        <translation type="unfinished">底層植被100%的綠色</translation>
     </message>
     <message>
         <source>White over yellow</source>
         <comment>Color 33</comment>
-        <translation>黃色上層的白色</translation>
+        <translation type="unfinished">黃色上層的白色</translation>
     </message>
     <message>
         <source>Black for open land</source>
         <comment>Color 34</comment>
-        <translation>開闊地的黑色</translation>
+        <translation type="unfinished">開闊地的黑色</translation>
     </message>
     <message>
         <source>Yellow</source>
         <comment>Color 35</comment>
-        <translation>黃色</translation>
+        <translation type="unfinished">黃色</translation>
     </message>
     <message>
         <source>Yellow 100% for area features</source>
         <comment>Color 36</comment>
-        <translation>區塊特徵100%的黃色</translation>
+        <translation type="unfinished">區塊特徵100%的黃色</translation>
     </message>
     <message>
         <source>Yellow 50%</source>
         <comment>Color 37</comment>
-        <translation>50%的黃色</translation>
+        <translation type="unfinished">50%的黃色</translation>
+    </message>
+    <message>
+        <source>Blue 100% point symbols</source>
+        <comment>Color 38</comment>
+        <translation type="unfinished">100%的綠色</translation>
+    </message>
+    <message>
+        <source>Brown 100% point symbols</source>
+        <comment>Color 39</comment>
+        <translation type="unfinished">鐵道的白色</translation>
+    </message>
+    <message>
+        <source>Green 100% point symbols</source>
+        <comment>Color 40</comment>
+        <translation type="unfinished">100%的藍色</translation>
+    </message>
+    <message>
+        <source>Blue 100% line symbols</source>
+        <comment>Color 41</comment>
+        <translation type="unfinished">100%的棕色</translation>
+    </message>
+    <message>
+        <source>Brown 100% line symbols</source>
+        <comment>Color 42</comment>
+        <translation type="unfinished">紫紅色軌跡圖例下方的黑色</translation>
+    </message>
+    <message>
+        <source>Lower purple for course overprint</source>
+        <comment>Color 43</comment>
+        <translation type="unfinished">65%的黑色</translation>
+    </message>
+    <message>
+        <source>Brown 50% for road infill</source>
+        <comment>Color 44</comment>
+        <translation type="unfinished">20%的黑色</translation>
+    </message>
+    <message>
+        <source>Black 100% for road outline</source>
+        <comment>Color 45</comment>
+        <translation type="unfinished">較上層之50%的棕色</translation>
+    </message>
+    <message>
+        <source>Black 50% for large buildings and tramway</source>
+        <comment>Color 46</comment>
+        <translation type="unfinished">上層50%的棕色之下方的黑色</translation>
+    </message>
+    <message>
+        <source>Black 20% for canopy</source>
+        <comment>Color 47</comment>
+        <translation type="unfinished">較下層50%的棕色</translation>
+    </message>
+    <message>
+        <source>Blue 100% area symbols</source>
+        <comment>Color 48</comment>
+        <translation type="unfinished">下層50%的棕色之下方的黑色</translation>
+    </message>
+    <message>
+        <source>Blue 70% area symbols</source>
+        <comment>Color 49</comment>
+        <translation type="unfinished">區塊特徵之100%的藍色</translation>
+    </message>
+    <message>
+        <source>Blue 50% area symbols</source>
+        <comment>Color 50</comment>
+        <translation type="unfinished">70%的藍色</translation>
+    </message>
+    <message>
+        <source>White over green and brown (+ yellow)</source>
+        <comment>Color 51</comment>
+        <translation type="unfinished">50%的藍色</translation>
+    </message>
+    <message>
+        <source>Brown 50% for paved area</source>
+        <comment>Color 52</comment>
+        <translation type="unfinished">OpenOrienteering的橙色</translation>
+    </message>
+    <message>
+        <source>Yellow 100% for narrow ride (extra)</source>
+        <comment>Color 53</comment>
+        <translation type="unfinished">狹窄通道之100%的黃色</translation>
+    </message>
+    <message>
+        <source>Green 30% for narrow ride (extra)</source>
+        <comment>Color 54</comment>
+        <translation type="unfinished">狹窄通道之30%的綠色</translation>
+    </message>
+    <message>
+        <source>Yellow 100% + Green 50%</source>
+        <comment>Color 55</comment>
+        <translation type="unfinished">綠色上層的白色</translation>
+    </message>
+    <message>
+        <source>Green 100% area symbols</source>
+        <comment>Color 56</comment>
+        <translation type="unfinished">100%的黃色/50%的綠色</translation>
+    </message>
+    <message>
+        <source>Green 30% area symbols</source>
+        <comment>Color 57</comment>
+        <translation type="unfinished">100%的綠色/50%的黑色</translation>
+    </message>
+    <message>
+        <source>Black 35% area symbols</source>
+        <comment>Color 58</comment>
+        <translation type="unfinished">區塊特徵100%的綠色</translation>
+    </message>
+    <message>
+        <source>Green 100% below green areas (extra)</source>
+        <comment>Color 59</comment>
+        <translation type="unfinished">60%的綠色</translation>
+    </message>
+    <message>
+        <source>White over yellow</source>
+        <comment>Color 60</comment>
+        <translation type="unfinished">黃色上層的白色</translation>
+    </message>
+    <message>
+        <source>Black for cultivated land and sandy ground</source>
+        <comment>Color 61</comment>
+        <translation type="unfinished">底層植被100%的綠色</translation>
+    </message>
+    <message>
+        <source>Yellow 100% area symbols</source>
+        <comment>Color 62</comment>
+        <translation type="unfinished">黃色上層的白色</translation>
+    </message>
+    <message>
+        <source>Yellow 75% area symbols</source>
+        <comment>Color 63</comment>
+        <translation type="unfinished">開闊地的黑色</translation>
+    </message>
+    <message>
+        <source>Yellow 50%</source>
+        <comment>Color 64</comment>
+        <translation type="unfinished">50%的黃色</translation>
+    </message>
+    <message>
+        <source>OpenOrienteering Orange (extra)</source>
+        <comment>Color 65</comment>
+        <translation type="unfinished">區塊特徵100%的黃色</translation>
     </message>
     <message>
         <source>Contour</source>
         <comment>Name of symbol 101</comment>
-        <translation>等高線</translation>
+        <translation type="unfinished">等高線</translation>
     </message>
     <message>
         <source>A line joining points of equal height. The standard vertical interval between contours is 5 m. A contour interval of 2.5 m may be used for flat terrains.
@@ -7433,7 +7773,7 @@ Contours shall be adapted or broken in order not to touch symbol Small knoll (10
     <message>
         <source>Slope line, contour</source>
         <comment>Name of symbol 101.1</comment>
-        <translation>示坡線, 等高線</translation>
+        <translation type="unfinished">示坡線, 等高線</translation>
     </message>
     <message>
         <source>Slope lines may be drawn on the lower side of a contour line to clarify the direction of slope. When used, they should be placed in re-entrants.
@@ -7444,7 +7784,7 @@ A depression has to have at least one slope line.</source>
     <message>
         <source>Index contour</source>
         <comment>Name of symbol 102</comment>
-        <translation>計曲線</translation>
+        <translation type="unfinished">計曲線</translation>
     </message>
     <message>
         <source>Every fifth contour shall be drawn with a thicker line. This is an aid to the quick assessment of height difference and the overall shape of the terrain surface.
@@ -7456,7 +7796,7 @@ The index contour level must be carefully selected in flat terrain. The ideal le
     <message>
         <source>Contour value</source>
         <comment>Name of symbol 102.1</comment>
-        <translation>等高線高度值</translation>
+        <translation type="unfinished">等高線高度值</translation>
     </message>
     <message>
         <source>An index contour may have a height value assigned. A height value should only be inserted in an index contour in places where other detail is not obscured. It shall be orientated so that the top of the label is on the higher side of the contour. The index value (label) shall be 1.5 mm high and represented in a sans-serif font.</source>
@@ -7466,7 +7806,7 @@ The index contour level must be carefully selected in flat terrain. The ideal le
     <message>
         <source>Form line</source>
         <comment>Name of symbol 103</comment>
-        <translation>輔助等高線</translation>
+        <translation type="unfinished">輔助等高線</translation>
     </message>
     <message>
         <source>Form lines are used where more information must be given about the shape of the ground. Form lines are added only where representation would be incomplete with ordinary contours. They shall not be used as intermediate contours. Only one form line should be used between neighbouring contours. It is very important that a form line fits logically into the contour system, so the start and end of a form line should be parallel to the neighbouring contours. The gaps between the form line dashes must be placed on reasonably straight sections of the form line. Form lines can be used to differentiate flat knolls and depressions from more distinct ones (minimum height / depth should be 1 m). Excessive use of form lines must be avoided as this disturbs the three-dimensional picture of the ground shape and will complicate map reading.
@@ -7478,7 +7818,7 @@ Minimum length of a form line, knoll or depression: 1.1 mm (footprint 16.5 m)</s
     <message>
         <source>Slope line, formline</source>
         <comment>Name of symbol 103.1</comment>
-        <translation>示坡線,輔助等高線</translation>
+        <translation type="unfinished">示坡線,輔助等高線</translation>
     </message>
     <message>
         <source>Slope lines may be drawn on the lower side of a contour line to clarify the direction of slope. When used, they should be placed in re-entrants.</source>
@@ -7488,7 +7828,7 @@ Minimum length of a form line, knoll or depression: 1.1 mm (footprint 16.5 m)</s
     <message>
         <source>Earth bank</source>
         <comment>Name of symbol 104</comment>
-        <translation>土堤</translation>
+        <translation type="unfinished">土堤</translation>
     </message>
     <message>
         <source>An earth bank is an abrupt change in ground level which can be clearly distinguished from its surroundings, e.g. gravel or sand pits, road and railway cuttings or embankments.
@@ -7501,7 +7841,7 @@ Minimum length: 0.6 mm (footprint 9 m).</source>
     <message>
         <source>Earth bank, minimum size</source>
         <comment>Name of symbol 104.1</comment>
-        <translation>土堤,最小尺寸</translation>
+        <translation type="unfinished">土堤,最小尺寸</translation>
     </message>
     <message>
         <source>An earth bank is an abrupt change in ground level which can be clearly distinguished from its surroundings, e.g. gravel or sand pits, road and railway cuttings or embankments.
@@ -7514,7 +7854,7 @@ Minimum length: 0.6 mm (footprint 9 m).</source>
     <message>
         <source>Earth bank, top line</source>
         <comment>Name of symbol 104.2</comment>
-        <translation>土堤, 主線</translation>
+        <translation type="unfinished">土堤, 主線</translation>
     </message>
     <message>
         <source>An earth bank is an abrupt change in ground level which can be clearly distinguished from its surroundings, e.g. gravel or sand pits, road and railway cuttings or embankments.
@@ -7527,7 +7867,7 @@ Minimum length: 0.6 mm (footprint 9 m).</source>
     <message>
         <source>Earth bank, tag line</source>
         <comment>Name of symbol 104.3</comment>
-        <translation>土堤,附加直線</translation>
+        <translation type="unfinished">土堤,附加直線</translation>
     </message>
     <message>
         <source>Use this symbol to display the full extent of wide earth banks.</source>
@@ -7537,7 +7877,7 @@ Minimum length: 0.6 mm (footprint 9 m).</source>
     <message>
         <source>Earth bank, minimum size (from ISOM2000)</source>
         <comment>Name of symbol 104.9</comment>
-        <translation>土堤,最小尺寸(ISOM2000)</translation>
+        <translation type="unfinished">土堤,最小尺寸(ISOM2000)</translation>
     </message>
     <message>
         <source>Provided for migration from ISOM2000. Use of this symbol variant is discouraged for new maps.</source>
@@ -7547,7 +7887,7 @@ Minimum length: 0.6 mm (footprint 9 m).</source>
     <message>
         <source>Earth wall</source>
         <comment>Name of symbol 105.1</comment>
-        <translation>土牆</translation>
+        <translation type="unfinished">土牆</translation>
     </message>
     <message>
         <source>Distinct earth wall. Minimum height: 1 m.
@@ -7569,7 +7909,7 @@ Minimum height: 0.5 m, minimum length (isolated): 1.4 mm.</source>
     <message>
         <source>Erosion gully</source>
         <comment>Name of symbol 107</comment>
-        <translation>沖溝</translation>
+        <translation type="unfinished">沖溝</translation>
     </message>
     <message>
         <source>An erosion gully which is too small to be shown using symbol Earth bank (104) is shown by a single line. Contour lines may be broken around this symbol for better readability.
@@ -7581,7 +7921,7 @@ Minimum length: 1.15 mm (footprint 17.25 m).</source>
     <message>
         <source>Small knoll</source>
         <comment>Name of symbol 109</comment>
-        <translation>小丘</translation>
+        <translation type="unfinished">小丘</translation>
     </message>
     <message>
         <source>An obvious mound or knoll which cannot be drawn to scale with a contour.
@@ -7594,7 +7934,7 @@ Footprint: 7.5 m x 7.5 m.</source>
     <message>
         <source>Small depression</source>
         <comment>Name of symbol 111</comment>
-        <translation>小窪地</translation>
+        <translation type="unfinished">小窪地</translation>
     </message>
     <message>
         <source>A small depression or hollow without steep sides that is too small to be shown by contours.
@@ -7608,7 +7948,7 @@ Footprint: 12 m x 6 m.</source>
     <message>
         <source>Impassable cliff</source>
         <comment>Name of symbol 201</comment>
-        <translation>不可跨越的陡壁</translation>
+        <translation type="unfinished">不可跨越的陡壁</translation>
     </message>
     <message>
         <source>A cliff, quarry or earth bank that is so high and steep that it is impossible to pass/climb or is dangerous.
@@ -7622,7 +7962,7 @@ Minimum length: 0.6 mm (footprint 9 m).</source>
     <message>
         <source>Impassable cliff, minimum size</source>
         <comment>Name of symbol 201.1</comment>
-        <translation>不可跨越的陡壁,最小尺寸</translation>
+        <translation type="unfinished">不可跨越的陡壁,最小尺寸</translation>
     </message>
     <message>
         <source>A cliff, quarry or earth bank that is so high and steep that it is impossible to pass/climb or is dangerous.
@@ -7636,7 +7976,7 @@ Minimum length: 0.6 mm (footprint 9 m).</source>
     <message>
         <source>Impassable cliff, plan shape representation (from ISOM2000)</source>
         <comment>Name of symbol 201.2</comment>
-        <translation>不可跨越的陡壁,以平面形狀表示(ISOM2000)</translation>
+        <translation type="unfinished">不可跨越的陡壁,以平面形狀表示(ISOM2000)</translation>
     </message>
     <message>
         <source>Provided for migration from ISOM2000. Use of this symbol variant is discouraged for new maps.</source>
@@ -7646,7 +7986,7 @@ Minimum length: 0.6 mm (footprint 9 m).</source>
     <message>
         <source>Impassable cliff, top line</source>
         <comment>Name of symbol 201.3</comment>
-        <translation>不可跨越的陡壁,主線</translation>
+        <translation type="unfinished">不可跨越的陡壁,主線</translation>
     </message>
     <message>
         <source>A cliff, quarry or earth bank that is so high and steep that it is impossible to pass/climb or is dangerous.
@@ -7660,7 +8000,7 @@ Minimum length: 0.6 mm (footprint 9 m).</source>
     <message>
         <source>Impassable cliff, tag line</source>
         <comment>Name of symbol 201.4</comment>
-        <translation>不可跨越的陡壁,附加直線</translation>
+        <translation type="unfinished">不可跨越的陡壁,附加直線</translation>
     </message>
     <message>
         <source>Use this symbol to display the full extent of a wide cliff.</source>
@@ -8973,6 +9313,291 @@ A route which is out-of-bounds and forbidden to cross is shown with a zigzag. Th
         <source>The OpenOrienteering Logo.</source>
         <comment>Description of symbol 999</comment>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Black 100%</source>
+        <comment>Color 3</comment>
+        <translation type="obsolete">100%的黑色</translation>
+    </message>
+    <message>
+        <source>Green 100%</source>
+        <comment>Color 4</comment>
+        <translation type="obsolete">100%的綠色</translation>
+    </message>
+    <message>
+        <source>White for railway</source>
+        <comment>Color 5</comment>
+        <translation type="obsolete">鐵道的白色</translation>
+    </message>
+    <message>
+        <source>Blue 100%</source>
+        <comment>Color 6</comment>
+        <translation type="obsolete">100%的藍色</translation>
+    </message>
+    <message>
+        <source>Brown 100%</source>
+        <comment>Color 7</comment>
+        <translation type="obsolete">100%的棕色</translation>
+    </message>
+    <message>
+        <source>Purple for track symbols</source>
+        <comment>Color 8</comment>
+        <translation type="obsolete">路徑圖例的紫紅色</translation>
+    </message>
+    <message>
+        <source>Black below purple for track symbols</source>
+        <comment>Color 9</comment>
+        <translation type="obsolete">紫紅色軌跡圖例下方的黑色</translation>
+    </message>
+    <message>
+        <source>Black 65%</source>
+        <comment>Color 10</comment>
+        <translation type="obsolete">65%的黑色</translation>
+    </message>
+    <message>
+        <source>Black 20%</source>
+        <comment>Color 11</comment>
+        <translation type="obsolete">20%的黑色</translation>
+    </message>
+    <message>
+        <source>Upper brown 50%</source>
+        <comment>Color 12</comment>
+        <translation type="obsolete">較上層之50%的棕色</translation>
+    </message>
+    <message>
+        <source>Black below upper brown 50%</source>
+        <comment>Color 13</comment>
+        <translation type="obsolete">上層50%的棕色之下方的黑色</translation>
+    </message>
+    <message>
+        <source>Lower brown 50%</source>
+        <comment>Color 14</comment>
+        <translation type="obsolete">較下層50%的棕色</translation>
+    </message>
+    <message>
+        <source>Black below lower brown 50%</source>
+        <comment>Color 15</comment>
+        <translation type="obsolete">下層50%的棕色之下方的黑色</translation>
+    </message>
+    <message>
+        <source>Blue 100% for area features</source>
+        <comment>Color 16</comment>
+        <translation type="obsolete">區塊特徵之100%的藍色</translation>
+    </message>
+    <message>
+        <source>Blue 70%</source>
+        <comment>Color 17</comment>
+        <translation type="obsolete">70%的藍色</translation>
+    </message>
+    <message>
+        <source>Blue 50%</source>
+        <comment>Color 18</comment>
+        <translation type="obsolete">50%的藍色</translation>
+    </message>
+    <message>
+        <source>OpenOrienteering Orange</source>
+        <comment>Color 19</comment>
+        <translation type="obsolete">OpenOrienteering的橙色</translation>
+    </message>
+    <message>
+        <source>Yellow 100% for narrow ride</source>
+        <comment>Color 20</comment>
+        <translation type="obsolete">狹窄通道之100%的黃色</translation>
+    </message>
+    <message>
+        <source>Green 60% for narrow ride</source>
+        <comment>Color 21</comment>
+        <translation type="obsolete">狹窄通道之60%的綠色</translation>
+    </message>
+    <message>
+        <source>Green 30% for narrow ride</source>
+        <comment>Color 22</comment>
+        <translation type="obsolete">狹窄通道之30%的綠色</translation>
+    </message>
+    <message>
+        <source>White over green</source>
+        <comment>Color 23</comment>
+        <translation type="obsolete">綠色上層的白色</translation>
+    </message>
+    <message>
+        <source>Yellow 100%/Green 50%</source>
+        <comment>Color 24</comment>
+        <translation type="obsolete">100%的黃色/50%的綠色</translation>
+    </message>
+    <message>
+        <source>Black 25% (Grey)</source>
+        <comment>Color 25</comment>
+        <translation type="obsolete">25%的黑色(灰色)</translation>
+    </message>
+    <message>
+        <source>Green 100%/Black 50%</source>
+        <comment>Color 26</comment>
+        <translation type="obsolete">100%的綠色/50%的黑色</translation>
+    </message>
+    <message>
+        <source>Green 100% for area features</source>
+        <comment>Color 27</comment>
+        <translation type="obsolete">區塊特徵100%的綠色</translation>
+    </message>
+    <message>
+        <source>Green 60%</source>
+        <comment>Color 28</comment>
+        <translation type="obsolete">60%的綠色</translation>
+    </message>
+    <message>
+        <source>Green 30%</source>
+        <comment>Color 29</comment>
+        <translation type="obsolete">30%的綠色</translation>
+    </message>
+    <message>
+        <source>Green 100% for undergrowth</source>
+        <comment>Color 30</comment>
+        <translation type="obsolete">底層植被100%的綠色</translation>
+    </message>
+    <message>
+        <source>White over yellow</source>
+        <comment>Color 31</comment>
+        <translation type="obsolete">黃色上層的白色</translation>
+    </message>
+    <message>
+        <source>Black for open land</source>
+        <comment>Color 32</comment>
+        <translation type="obsolete">開闊地的黑色</translation>
+    </message>
+    <message>
+        <source>Yellow</source>
+        <comment>Color 33</comment>
+        <translation type="obsolete">黃色</translation>
+    </message>
+    <message>
+        <source>Yellow 100% for area features</source>
+        <comment>Color 34</comment>
+        <translation type="obsolete">區塊特徵100%的黃色</translation>
+    </message>
+    <message>
+        <source>Yellow 50%</source>
+        <comment>Color 35</comment>
+        <translation type="obsolete">50%的黃色</translation>
+    </message>
+    <message>
+        <source>White over green and brown</source>
+        <comment>Color 51</comment>
+        <translation type="obsolete">50%的藍色</translation>
+    </message>
+    <message>
+        <source>Brown 100% point symbols </source>
+        <comment>Color 39</comment>
+        <translation type="obsolete">鐵道的白色</translation>
+    </message>
+    <message>
+        <source>Brown 100% line symbols </source>
+        <comment>Color 42</comment>
+        <translation type="obsolete">紫紅色軌跡圖例下方的黑色</translation>
+    </message>
+    <message>
+        <source>Yellow 100% + Green 50% </source>
+        <comment>Color 55</comment>
+        <translation type="obsolete">綠色上層的白色</translation>
+    </message>
+    <message>
+        <source>Black for cultivated land and sandy ground </source>
+        <comment>Color 61</comment>
+        <translation type="obsolete">底層植被100%的綠色</translation>
+    </message>
+    <message>
+        <source>Green 100% bellow green areas (extra)</source>
+        <comment>Color 59</comment>
+        <translation type="obsolete">60%的綠色</translation>
+    </message>
+    <message>
+        <source>Black 50%</source>
+        <comment>Color 11</comment>
+        <translation type="obsolete">65%的黑色</translation>
+    </message>
+    <message>
+        <source>Black 20%</source>
+        <comment>Color 12</comment>
+        <translation type="obsolete">20%的黑色</translation>
+    </message>
+    <message>
+        <source>Upper brown 50%</source>
+        <comment>Color 13</comment>
+        <translation type="obsolete">較上層之50%的棕色</translation>
+    </message>
+    <message>
+        <source>Black below upper brown 50%</source>
+        <comment>Color 14</comment>
+        <translation type="obsolete">上層50%的棕色之下方的黑色</translation>
+    </message>
+    <message>
+        <source>Lower brown 50%</source>
+        <comment>Color 15</comment>
+        <translation type="obsolete">較下層50%的棕色</translation>
+    </message>
+    <message>
+        <source>Black below lower brown 50%</source>
+        <comment>Color 16</comment>
+        <translation type="obsolete">下層50%的棕色之下方的黑色</translation>
+    </message>
+    <message>
+        <source>Blue 100% for area features</source>
+        <comment>Color 17</comment>
+        <translation type="obsolete">區塊特徵之100%的藍色</translation>
+    </message>
+    <message>
+        <source>Blue 70%</source>
+        <comment>Color 18</comment>
+        <translation type="obsolete">70%的藍色</translation>
+    </message>
+    <message>
+        <source>Blue 50%</source>
+        <comment>Color 19</comment>
+        <translation type="obsolete">50%的藍色</translation>
+    </message>
+    <message>
+        <source>OpenOrienteering Orange</source>
+        <comment>Color 20</comment>
+        <translation type="obsolete">OpenOrienteering的橙色</translation>
+    </message>
+    <message>
+        <source>Yellow 100% for narrow ride</source>
+        <comment>Color 21</comment>
+        <translation type="obsolete">狹窄通道之100%的黃色</translation>
+    </message>
+    <message>
+        <source>Green 60% for narrow ride</source>
+        <comment>Color 22</comment>
+        <translation type="obsolete">狹窄通道之60%的綠色</translation>
+    </message>
+    <message>
+        <source>Green 30% for narrow ride</source>
+        <comment>Color 23</comment>
+        <translation type="obsolete">狹窄通道之30%的綠色</translation>
+    </message>
+    <message>
+        <source>White over green</source>
+        <comment>Color 24</comment>
+        <translation type="obsolete">綠色上層的白色</translation>
+    </message>
+    <message>
+        <source>Yellow 100%/Green 50%</source>
+        <comment>Color 25</comment>
+        <translation type="obsolete">100%的黃色/50%的綠色</translation>
+    </message>
+    <message>
+        <source>Black 25% (Grey)</source>
+        <comment>Color 26</comment>
+        <translation type="obsolete">25%的黑色(灰色)</translation>
+    </message>
+    <message>
+        <source>Green 100%/Black 50%</source>
+        <comment>Color 27</comment>
+        <translation type="obsolete">100%的綠色/50%的黑色</translation>
+    </message>
+    <message>
+        <source>Black 35% (Grey)</source>
+        <comment>Color 28</comment>
+        <translation type="obsolete">25%的黑色(灰色)</translation>
     </message>
 </context>
 <context>

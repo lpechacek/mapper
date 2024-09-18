@@ -4,14 +4,14 @@
 <context>
     <name>ISOM 2017-2</name>
     <message>
-        <source>Purple for course overprint</source>
+        <source>Upper purple for course overprint</source>
         <comment>Color 0</comment>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Sort 100%</translation>
     </message>
     <message>
-        <source>White for course overprint</source>
+        <source>White for railroad</source>
         <comment>Color 1</comment>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Grønn 100%</translation>
     </message>
     <message>
         <source>Black 100%</source>
@@ -19,164 +19,159 @@
         <translation>Sort 100%</translation>
     </message>
     <message>
-        <source>Green 100%</source>
+        <source>Blue 100% point symbols</source>
         <comment>Color 3</comment>
-        <translation>Grønn 100%</translation>
+        <translation type="unfinished">Grønn 100%</translation>
     </message>
     <message>
-        <source>White for railway</source>
+        <source>Brown 100% point symbols</source>
         <comment>Color 4</comment>
-        <translation>Hvit for jernbane</translation>
+        <translation type="unfinished">Hvit for jernbane</translation>
     </message>
     <message>
-        <source>Blue 100%</source>
+        <source>Green 100% point symbols</source>
         <comment>Color 5</comment>
-        <translation>Blå 100%</translation>
+        <translation type="unfinished">Blå 100%</translation>
     </message>
     <message>
-        <source>Brown 100%</source>
+        <source>Blue 100% line symbols</source>
         <comment>Color 6</comment>
-        <translation>Brun 100%</translation>
+        <translation type="unfinished">Brun 100%</translation>
     </message>
     <message>
-        <source>Purple for track symbols</source>
+        <source>Dark green line symbols</source>
         <comment>Color 7</comment>
-        <translation>Lilla for sporsymboler</translation>
+        <translation type="unfinished">Grønn 100%/Sort 50%</translation>
     </message>
     <message>
-        <source>Black below purple for track symbols</source>
+        <source>Brown 100% line symbols</source>
         <comment>Color 8</comment>
-        <translation>Sort under lilla for sporsymboler</translation>
+        <translation type="unfinished">Sort under lilla for sporsymboler</translation>
     </message>
     <message>
-        <source>Black 50%</source>
+        <source>Lower purple for course overprint</source>
         <comment>Color 9</comment>
         <translation type="unfinished">Sort 65%</translation>
     </message>
     <message>
-        <source>Black 20%</source>
+        <source>Brown 50% for road infill</source>
         <comment>Color 10</comment>
-        <translation>Sort 20%</translation>
+        <translation type="unfinished">Sort 20%</translation>
     </message>
     <message>
-        <source>Upper brown 50%</source>
+        <source>Black 100% for road outline</source>
         <comment>Color 11</comment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Black below upper brown 50%</source>
+        <source>Black 50% for large buildings and tramway</source>
         <comment>Color 12</comment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Lower brown 50%</source>
+        <source>Black 20% for canopy</source>
         <comment>Color 13</comment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Black below lower brown 50%</source>
+        <source>Blue 100% area symbols</source>
         <comment>Color 14</comment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Blue 100% for area features</source>
+        <source>Blue 70% area symbols</source>
         <comment>Color 15</comment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Blue 70%</source>
+        <source>Blue 50% area symbols</source>
         <comment>Color 16</comment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Blue 50%</source>
+        <source>White over green and brown (+ yellow)</source>
         <comment>Color 17</comment>
-        <translation>Blå 50%</translation>
+        <translation type="unfinished">Blå 50%</translation>
     </message>
     <message>
-        <source>OpenOrienteering Orange</source>
+        <source>Brown 50% for paved area</source>
         <comment>Color 18</comment>
-        <translation>OpenOrienteering-oransje</translation>
+        <translation type="unfinished">OpenOrienteering-oransje</translation>
     </message>
     <message>
-        <source>Yellow 100% for narrow ride</source>
+        <source>Yellow 100% for narrow ride (extra)</source>
         <comment>Color 19</comment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Green 60% for narrow ride</source>
+        <source>Green 60% for narrow ride (extra)</source>
         <comment>Color 20</comment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Green 30% for narrow ride</source>
+        <source>Green 30% for narrow ride (extra)</source>
         <comment>Color 21</comment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>White over green</source>
+        <source>Yellow 100% + Green 50%</source>
         <comment>Color 22</comment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Yellow 100%/Green 50%</source>
+        <source>Green 100% area symbols</source>
         <comment>Color 23</comment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Black 35% (Grey)</source>
+        <source>Green 60% area symbols</source>
         <comment>Color 24</comment>
         <translation type="unfinished">Sort 25% (grå)</translation>
     </message>
     <message>
-        <source>Dark green line symbols </source>
+        <source>Green 30% area symbols</source>
         <comment>Color 25</comment>
         <translation type="unfinished">Grønn 100%/Sort 50%</translation>
     </message>
     <message>
-        <source>Green 100% for area features</source>
+        <source>Black 35% area symbols</source>
         <comment>Color 26</comment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Green 60%</source>
+        <source>Green 100% below green areas (extra)</source>
         <comment>Color 27</comment>
-        <translation>Grønn 60%</translation>
+        <translation type="unfinished">Grønn 60%</translation>
     </message>
     <message>
-        <source>Green 30%</source>
+        <source>White over yellow</source>
         <comment>Color 28</comment>
-        <translation>Grønn 30%</translation>
+        <translation type="unfinished">Grønn 30%</translation>
     </message>
     <message>
-        <source>Green 100% for undergrowth</source>
+        <source>Black for cultivated land and sandy ground</source>
         <comment>Color 29</comment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>White over yellow</source>
+        <source>Yellow 100% area symbols</source>
         <comment>Color 30</comment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Black for open land</source>
+        <source>Yellow 75% area symbols</source>
         <comment>Color 31</comment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Yellow</source>
+        <source>Yellow 50%</source>
         <comment>Color 32</comment>
-        <translation>Gul</translation>
+        <translation>Gul 50%</translation>
     </message>
     <message>
-        <source>Yellow 100% for area features</source>
+        <source>OpenOrienteering Orange (extra)</source>
         <comment>Color 33</comment>
         <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Yellow 50%</source>
-        <comment>Color 34</comment>
-        <translation>Gul 50%</translation>
     </message>
     <message>
         <source>Contour</source>
@@ -2562,6 +2557,111 @@ The purple line will extend a bit into the finish symbol. This is a shortcoming 
         <translation>OpenOrienteering-logoen</translation>
     </message>
     <message>
+        <source>White over green and brown</source>
+        <comment>Color 17</comment>
+        <translation type="obsolete">Blå 50%</translation>
+    </message>
+    <message>
+        <source>Brown 100% point symbols </source>
+        <comment>Color 4</comment>
+        <translation type="obsolete">Hvit for jernbane</translation>
+    </message>
+    <message>
+        <source>Dark green line symbols </source>
+        <comment>Color 7</comment>
+        <translation type="obsolete">Grønn 100%/Sort 50%</translation>
+    </message>
+    <message>
+        <source>Brown 100% line symbols </source>
+        <comment>Color 8</comment>
+        <translation type="obsolete">Sort under lilla for sporsymboler</translation>
+    </message>
+    <message>
+        <source>Green 100% bellow green areas (extra)</source>
+        <comment>Color 27</comment>
+        <translation type="obsolete">Grønn 60%</translation>
+    </message>
+    <message>
+        <source>Green 100%</source>
+        <comment>Color 3</comment>
+        <translation type="obsolete">Grønn 100%</translation>
+    </message>
+    <message>
+        <source>White for railway</source>
+        <comment>Color 4</comment>
+        <translation type="obsolete">Hvit for jernbane</translation>
+    </message>
+    <message>
+        <source>Blue 100%</source>
+        <comment>Color 5</comment>
+        <translation type="obsolete">Blå 100%</translation>
+    </message>
+    <message>
+        <source>Brown 100%</source>
+        <comment>Color 6</comment>
+        <translation type="obsolete">Brun 100%</translation>
+    </message>
+    <message>
+        <source>Purple for track symbols</source>
+        <comment>Color 7</comment>
+        <translation type="obsolete">Lilla for sporsymboler</translation>
+    </message>
+    <message>
+        <source>Black below purple for track symbols</source>
+        <comment>Color 8</comment>
+        <translation type="obsolete">Sort under lilla for sporsymboler</translation>
+    </message>
+    <message>
+        <source>Black 50%</source>
+        <comment>Color 9</comment>
+        <translation type="obsolete">Sort 65%</translation>
+    </message>
+    <message>
+        <source>Black 20%</source>
+        <comment>Color 10</comment>
+        <translation type="obsolete">Sort 20%</translation>
+    </message>
+    <message>
+        <source>Blue 50%</source>
+        <comment>Color 17</comment>
+        <translation type="obsolete">Blå 50%</translation>
+    </message>
+    <message>
+        <source>OpenOrienteering Orange</source>
+        <comment>Color 18</comment>
+        <translation type="obsolete">OpenOrienteering-oransje</translation>
+    </message>
+    <message>
+        <source>Black 35% (Grey)</source>
+        <comment>Color 24</comment>
+        <translation type="obsolete">Sort 25% (grå)</translation>
+    </message>
+    <message>
+        <source>Dark green line symbols </source>
+        <comment>Color 25</comment>
+        <translation type="obsolete">Grønn 100%/Sort 50%</translation>
+    </message>
+    <message>
+        <source>Green 60%</source>
+        <comment>Color 27</comment>
+        <translation type="obsolete">Grønn 60%</translation>
+    </message>
+    <message>
+        <source>Green 30%</source>
+        <comment>Color 28</comment>
+        <translation type="obsolete">Grønn 30%</translation>
+    </message>
+    <message>
+        <source>Yellow</source>
+        <comment>Color 32</comment>
+        <translation type="obsolete">Gul</translation>
+    </message>
+    <message>
+        <source>Yellow 50%</source>
+        <comment>Color 34</comment>
+        <translation type="obsolete">Gul 50%</translation>
+    </message>
+    <message>
         <source>Black 65%</source>
         <comment>Color 9</comment>
         <translation type="obsolete">Sort 65%</translation>
@@ -3105,12 +3205,12 @@ Minimumshøyde: 0,5 m.</translation>
     <message>
         <source>Blue 100% for area features</source>
         <comment>Color 16</comment>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Blå 50%</translation>
     </message>
     <message>
         <source>Blue 70%</source>
         <comment>Color 17</comment>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Blå 50%</translation>
     </message>
     <message>
         <source>Blue 30%</source>
@@ -3130,7 +3230,7 @@ Minimumshøyde: 0,5 m.</translation>
     <message>
         <source>White over green</source>
         <comment>Color 21</comment>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Sort 25% (grå)</translation>
     </message>
     <message>
         <source>Green 50%/Yellow 100%</source>
@@ -3145,7 +3245,7 @@ Minimumshøyde: 0,5 m.</translation>
     <message>
         <source>Green 100% for area features</source>
         <comment>Color 24</comment>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Sort 25% (grå)</translation>
     </message>
     <message>
         <source>Green 60%</source>
@@ -3160,12 +3260,12 @@ Minimumshøyde: 0,5 m.</translation>
     <message>
         <source>Green 100% for undergrowth</source>
         <comment>Color 27</comment>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Grønn 60%</translation>
     </message>
     <message>
         <source>White over yellow</source>
         <comment>Color 28</comment>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Grønn 30%</translation>
     </message>
     <message>
         <source>Black for open land</source>
@@ -7499,159 +7599,159 @@ Note: if the stream is wider than 0.25mm, adjust this symbol so it extends 0.5mm
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Black 100%</source>
+        <source>Upper purple for course overprint</source>
         <comment>Color 3</comment>
-        <translation>Sort 100%</translation>
+        <translation type="unfinished">Sort 100%</translation>
+    </message>
+    <message>
+        <source>White for railroad</source>
+        <comment>Color 4</comment>
+        <translation type="unfinished">Grønn 100%</translation>
+    </message>
+    <message>
+        <source>Black 100%</source>
+        <comment>Color 5</comment>
+        <translation type="unfinished">Sort 100%</translation>
     </message>
     <message>
         <source>Green 100%</source>
-        <comment>Color 4</comment>
-        <translation>Grønn 100%</translation>
+        <comment>Color 6</comment>
+        <translation type="unfinished">Grønn 100%</translation>
     </message>
     <message>
         <source>White for railway</source>
-        <comment>Color 5</comment>
-        <translation>Hvit for jernbane</translation>
+        <comment>Color 7</comment>
+        <translation type="unfinished">Hvit for jernbane</translation>
     </message>
     <message>
         <source>Blue 100%</source>
-        <comment>Color 6</comment>
-        <translation>Blå 100%</translation>
+        <comment>Color 8</comment>
+        <translation type="unfinished">Blå 100%</translation>
     </message>
     <message>
         <source>Brown 100%</source>
-        <comment>Color 7</comment>
-        <translation>Brun 100%</translation>
+        <comment>Color 9</comment>
+        <translation type="unfinished">Brun 100%</translation>
     </message>
     <message>
         <source>Purple for track symbols</source>
-        <comment>Color 8</comment>
-        <translation>Lilla for sporsymboler</translation>
+        <comment>Color 10</comment>
+        <translation type="unfinished">Lilla for sporsymboler</translation>
     </message>
     <message>
         <source>Black below purple for track symbols</source>
-        <comment>Color 9</comment>
-        <translation>Sort under lilla for sporsymboler</translation>
+        <comment>Color 11</comment>
+        <translation type="unfinished">Sort under lilla for sporsymboler</translation>
     </message>
     <message>
         <source>Black 65%</source>
-        <comment>Color 10</comment>
-        <translation type="unfinished">Sort 65%</translation>
-    </message>
-    <message>
-        <source>Black 50%</source>
-        <comment>Color 11</comment>
+        <comment>Color 12</comment>
         <translation type="unfinished">Sort 65%</translation>
     </message>
     <message>
         <source>Black 20%</source>
-        <comment>Color 12</comment>
-        <translation>Sort 20%</translation>
+        <comment>Color 13</comment>
+        <translation type="unfinished">Sort 20%</translation>
     </message>
     <message>
         <source>Upper brown 50%</source>
-        <comment>Color 13</comment>
-        <translation type="unfinished"></translation>
+        <comment>Color 14</comment>
+        <translation type="unfinished">Sort 65%</translation>
     </message>
     <message>
         <source>Black below upper brown 50%</source>
-        <comment>Color 14</comment>
-        <translation type="unfinished"></translation>
+        <comment>Color 15</comment>
+        <translation type="unfinished">Sort 20%</translation>
     </message>
     <message>
         <source>Lower brown 50%</source>
-        <comment>Color 15</comment>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Black below lower brown 50%</source>
         <comment>Color 16</comment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Blue 100% for area features</source>
+        <source>Black below lower brown 50%</source>
         <comment>Color 17</comment>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Blå 50%</translation>
+    </message>
+    <message>
+        <source>Blue 100% for area features</source>
+        <comment>Color 18</comment>
+        <translation type="unfinished">Blå 50%</translation>
     </message>
     <message>
         <source>Blue 70%</source>
-        <comment>Color 18</comment>
-        <translation type="unfinished"></translation>
+        <comment>Color 19</comment>
+        <translation type="unfinished">Blå 50%</translation>
     </message>
     <message>
         <source>Blue 50%</source>
-        <comment>Color 19</comment>
-        <translation>Blå 50%</translation>
+        <comment>Color 20</comment>
+        <translation type="unfinished">Blå 50%</translation>
     </message>
     <message>
         <source>OpenOrienteering Orange</source>
-        <comment>Color 20</comment>
-        <translation>OpenOrienteering-oransje</translation>
+        <comment>Color 21</comment>
+        <translation type="unfinished">OpenOrienteering-oransje</translation>
     </message>
     <message>
         <source>Yellow 100% for narrow ride</source>
-        <comment>Color 21</comment>
-        <translation type="unfinished"></translation>
+        <comment>Color 22</comment>
+        <translation type="unfinished">Blå 50%</translation>
     </message>
     <message>
         <source>Green 60% for narrow ride</source>
-        <comment>Color 22</comment>
-        <translation type="unfinished"></translation>
+        <comment>Color 23</comment>
+        <translation type="unfinished">OpenOrienteering-oransje</translation>
     </message>
     <message>
         <source>Green 30% for narrow ride</source>
-        <comment>Color 23</comment>
-        <translation type="unfinished"></translation>
+        <comment>Color 24</comment>
+        <translation type="unfinished">Sort 25% (grå)</translation>
     </message>
     <message>
         <source>White over green</source>
-        <comment>Color 24</comment>
-        <translation type="unfinished"></translation>
+        <comment>Color 25</comment>
+        <translation type="unfinished">Sort 25% (grå)</translation>
     </message>
     <message>
         <source>Yellow 100%/Green 50%</source>
-        <comment>Color 25</comment>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Black 25% (Grey)</source>
         <comment>Color 26</comment>
         <translation type="unfinished">Sort 25% (grå)</translation>
     </message>
     <message>
-        <source>Green 100%/Black 50%</source>
+        <source>Black 25% (Grey)</source>
         <comment>Color 27</comment>
-        <translation type="unfinished">Grønn 100%/Sort 50%</translation>
+        <translation type="unfinished">Sort 25% (grå)</translation>
     </message>
     <message>
-        <source>Black 35% (Grey)</source>
+        <source>Green 100%/Black 50%</source>
         <comment>Color 28</comment>
-        <translation type="unfinished">Sort 25% (grå)</translation>
+        <translation type="unfinished">Grønn 100%/Sort 50%</translation>
     </message>
     <message>
         <source>Green 100% for area features</source>
         <comment>Color 29</comment>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Sort 25% (grå)</translation>
     </message>
     <message>
         <source>Green 60%</source>
         <comment>Color 30</comment>
-        <translation>Grønn 60%</translation>
+        <translation type="unfinished">Grønn 60%</translation>
     </message>
     <message>
         <source>Green 30%</source>
         <comment>Color 31</comment>
-        <translation>Grønn 30%</translation>
+        <translation type="unfinished">Grønn 30%</translation>
     </message>
     <message>
         <source>Green 100% for undergrowth</source>
         <comment>Color 32</comment>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Grønn 60%</translation>
     </message>
     <message>
         <source>White over yellow</source>
         <comment>Color 33</comment>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Grønn 30%</translation>
     </message>
     <message>
         <source>Black for open land</source>
@@ -7661,7 +7761,7 @@ Note: if the stream is wider than 0.25mm, adjust this symbol so it extends 0.5mm
     <message>
         <source>Yellow</source>
         <comment>Color 35</comment>
-        <translation>Gul</translation>
+        <translation type="unfinished">Gul</translation>
     </message>
     <message>
         <source>Yellow 100% for area features</source>
@@ -7671,7 +7771,147 @@ Note: if the stream is wider than 0.25mm, adjust this symbol so it extends 0.5mm
     <message>
         <source>Yellow 50%</source>
         <comment>Color 37</comment>
-        <translation>Gul 50%</translation>
+        <translation type="unfinished">Gul 50%</translation>
+    </message>
+    <message>
+        <source>Blue 100% point symbols</source>
+        <comment>Color 38</comment>
+        <translation type="unfinished">Grønn 100%</translation>
+    </message>
+    <message>
+        <source>Brown 100% point symbols</source>
+        <comment>Color 39</comment>
+        <translation type="unfinished">Hvit for jernbane</translation>
+    </message>
+    <message>
+        <source>Green 100% point symbols</source>
+        <comment>Color 40</comment>
+        <translation type="unfinished">Blå 100%</translation>
+    </message>
+    <message>
+        <source>Blue 100% line symbols</source>
+        <comment>Color 41</comment>
+        <translation type="unfinished">Brun 100%</translation>
+    </message>
+    <message>
+        <source>Brown 100% line symbols</source>
+        <comment>Color 42</comment>
+        <translation type="unfinished">Sort under lilla for sporsymboler</translation>
+    </message>
+    <message>
+        <source>Lower purple for course overprint</source>
+        <comment>Color 43</comment>
+        <translation type="unfinished">Sort 65%</translation>
+    </message>
+    <message>
+        <source>Brown 50% for road infill</source>
+        <comment>Color 44</comment>
+        <translation type="unfinished">Sort 20%</translation>
+    </message>
+    <message>
+        <source>Black 100% for road outline</source>
+        <comment>Color 45</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Black 50% for large buildings and tramway</source>
+        <comment>Color 46</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Black 20% for canopy</source>
+        <comment>Color 47</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Blue 100% area symbols</source>
+        <comment>Color 48</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Blue 70% area symbols</source>
+        <comment>Color 49</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Blue 50% area symbols</source>
+        <comment>Color 50</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>White over green and brown (+ yellow)</source>
+        <comment>Color 51</comment>
+        <translation type="unfinished">Blå 50%</translation>
+    </message>
+    <message>
+        <source>Brown 50% for paved area</source>
+        <comment>Color 52</comment>
+        <translation type="unfinished">OpenOrienteering-oransje</translation>
+    </message>
+    <message>
+        <source>Yellow 100% for narrow ride (extra)</source>
+        <comment>Color 53</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Green 30% for narrow ride (extra)</source>
+        <comment>Color 54</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Yellow 100% + Green 50%</source>
+        <comment>Color 55</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Green 100% area symbols</source>
+        <comment>Color 56</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Green 30% area symbols</source>
+        <comment>Color 57</comment>
+        <translation type="unfinished">Grønn 100%/Sort 50%</translation>
+    </message>
+    <message>
+        <source>Black 35% area symbols</source>
+        <comment>Color 58</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Green 100% below green areas (extra)</source>
+        <comment>Color 59</comment>
+        <translation type="unfinished">Grønn 60%</translation>
+    </message>
+    <message>
+        <source>White over yellow</source>
+        <comment>Color 60</comment>
+        <translation type="unfinished">Grønn 30%</translation>
+    </message>
+    <message>
+        <source>Black for cultivated land and sandy ground</source>
+        <comment>Color 61</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Yellow 100% area symbols</source>
+        <comment>Color 62</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Yellow 75% area symbols</source>
+        <comment>Color 63</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Yellow 50%</source>
+        <comment>Color 64</comment>
+        <translation type="unfinished">Gul 50%</translation>
+    </message>
+    <message>
+        <source>OpenOrienteering Orange (extra)</source>
+        <comment>Color 65</comment>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Contour</source>
@@ -7870,7 +8110,7 @@ Footprint: 12 m x 6 m.</source>
     <message>
         <source>Impassable cliff</source>
         <comment>Name of symbol 201</comment>
-        <translation>Uforserbar skrent</translation>
+        <translation type="unfinished">Uforserbar skrent</translation>
     </message>
     <message>
         <source>A cliff, quarry or earth bank that is so high and steep that it is impossible to pass/climb or is dangerous.
@@ -8807,7 +9047,7 @@ Minimum area: 0.5 mm x 0.5 mm (footprint 7.5 m x 7.5 m).</source>
     <message>
         <source>Large building</source>
         <comment>Name of symbol 521.3</comment>
-        <translation>Stor bygning</translation>
+        <translation type="unfinished">Stor bygning</translation>
     </message>
     <message>
         <source>A building is shown with its ground plan so far as the scale permits.
@@ -8837,7 +9077,7 @@ Minimum area: 0.5 mm x 0.5 mm (footprint 7.5 m x 7.5 m).</source>
     <message>
         <source>High tower</source>
         <comment>Name of symbol 524</comment>
-        <translation>Høyt tårn</translation>
+        <translation type="unfinished">Høyt tårn</translation>
     </message>
     <message>
         <source>A high tower or large pylon. If it is in a forest, it must be visible above the level of the surrounding forest.Towers with a larger footprint must be represented using symbol Building (521).
@@ -8849,7 +9089,7 @@ Footprint: 21 m in diameter.</source>
     <message>
         <source>Small tower</source>
         <comment>Name of symbol 525</comment>
-        <translation>Lite tårn</translation>
+        <translation type="unfinished">Lite tårn</translation>
     </message>
     <message>
         <source>An obvious small tower or elevated platform or seat. The object shall be with elevation above the ground. Location is at the centre of gravity of the symbol.
@@ -8897,7 +9137,7 @@ Footprint: 12 m x 12 m.</source>
     <message>
         <source>Magnetic north line</source>
         <comment>Name of symbol 601.1</comment>
-        <translation>Magnetisk nordlinje</translation>
+        <translation type="unfinished">Magnetisk nordlinje</translation>
     </message>
     <message>
         <source>Magnetic north lines are lines placed on the map pointing to magnetic north, parallel to the sides of the paper. Their spacing on the map shall be 20 mm on the map which represents 300 m on the ground at the scale of 1:15 000. If the map is enlarged to 1:10 000, the spacing of the lines will be 30 mm on the map.
@@ -8919,7 +9159,7 @@ North lines shall be broken to improve the legibility of the map, for instance w
     <message>
         <source>Magnetic north line, blue</source>
         <comment>Name of symbol 601.3</comment>
-        <translation>Magnetisk nordlinje, blå</translation>
+        <translation type="unfinished">Magnetisk nordlinje, blå</translation>
     </message>
     <message>
         <source>Magnetic north lines are lines placed on the map pointing to magnetic north, parallel to the sides of the paper. Their spacing on the map shall be 20 mm on the map which represents 300 m on the ground at the scale of 1:15 000. If the map is enlarged to 1:10 000, the spacing of the lines will be 30 mm on the map.
@@ -8930,7 +9170,7 @@ North lines shall be broken to improve the legibility of the map, for instance w
     <message>
         <source>North lines pattern, blue</source>
         <comment>Name of symbol 601.4</comment>
-        <translation>Nordlinjemønster, blåe</translation>
+        <translation type="unfinished">Nordlinjemønster, blåe</translation>
     </message>
     <message>
         <source>Magnetic north lines are lines placed on the map pointing to magnetic north, parallel to the sides of the paper. Their spacing on the map shall be 20 mm on the map which represents 300 m on the ground at the scale of 1:15 000. If the map is enlarged to 1:10 000, the spacing of the lines will be 30 mm on the map.
@@ -9235,6 +9475,191 @@ A route which is out-of-bounds and forbidden to cross is shown with a zigzag. Th
         <source>The OpenOrienteering Logo.</source>
         <comment>Description of symbol 999</comment>
         <translation>OpenOrienteering-logoen</translation>
+    </message>
+    <message>
+        <source>Black 100%</source>
+        <comment>Color 3</comment>
+        <translation type="obsolete">Sort 100%</translation>
+    </message>
+    <message>
+        <source>Green 100%</source>
+        <comment>Color 4</comment>
+        <translation type="obsolete">Grønn 100%</translation>
+    </message>
+    <message>
+        <source>White for railway</source>
+        <comment>Color 5</comment>
+        <translation type="obsolete">Hvit for jernbane</translation>
+    </message>
+    <message>
+        <source>Blue 100%</source>
+        <comment>Color 6</comment>
+        <translation type="obsolete">Blå 100%</translation>
+    </message>
+    <message>
+        <source>Brown 100%</source>
+        <comment>Color 7</comment>
+        <translation type="obsolete">Brun 100%</translation>
+    </message>
+    <message>
+        <source>Purple for track symbols</source>
+        <comment>Color 8</comment>
+        <translation type="obsolete">Lilla for sporsymboler</translation>
+    </message>
+    <message>
+        <source>Black below purple for track symbols</source>
+        <comment>Color 9</comment>
+        <translation type="obsolete">Sort under lilla for sporsymboler</translation>
+    </message>
+    <message>
+        <source>Black 65%</source>
+        <comment>Color 10</comment>
+        <translation type="obsolete">Sort 65%</translation>
+    </message>
+    <message>
+        <source>Black 20%</source>
+        <comment>Color 11</comment>
+        <translation type="obsolete">Sort 20%</translation>
+    </message>
+    <message>
+        <source>Upper brown 50%</source>
+        <comment>Color 12</comment>
+        <translation type="obsolete">Sort 65%</translation>
+    </message>
+    <message>
+        <source>Black below upper brown 50%</source>
+        <comment>Color 13</comment>
+        <translation type="obsolete">Sort 20%</translation>
+    </message>
+    <message>
+        <source>Blue 70%</source>
+        <comment>Color 17</comment>
+        <translation type="obsolete">Blå 50%</translation>
+    </message>
+    <message>
+        <source>Blue 50%</source>
+        <comment>Color 18</comment>
+        <translation type="obsolete">Blå 50%</translation>
+    </message>
+    <message>
+        <source>OpenOrienteering Orange</source>
+        <comment>Color 19</comment>
+        <translation type="obsolete">OpenOrienteering-oransje</translation>
+    </message>
+    <message>
+        <source>Yellow 100% for narrow ride</source>
+        <comment>Color 20</comment>
+        <translation type="obsolete">Blå 50%</translation>
+    </message>
+    <message>
+        <source>Green 60% for narrow ride</source>
+        <comment>Color 21</comment>
+        <translation type="obsolete">OpenOrienteering-oransje</translation>
+    </message>
+    <message>
+        <source>Yellow 100%/Green 50%</source>
+        <comment>Color 24</comment>
+        <translation type="obsolete">Sort 25% (grå)</translation>
+    </message>
+    <message>
+        <source>Black 25% (Grey)</source>
+        <comment>Color 25</comment>
+        <translation type="obsolete">Sort 25% (grå)</translation>
+    </message>
+    <message>
+        <source>Green 100%/Black 50%</source>
+        <comment>Color 26</comment>
+        <translation type="obsolete">Grønn 100%/Sort 50%</translation>
+    </message>
+    <message>
+        <source>Green 100% for area features</source>
+        <comment>Color 27</comment>
+        <translation type="obsolete">Sort 25% (grå)</translation>
+    </message>
+    <message>
+        <source>Green 60%</source>
+        <comment>Color 28</comment>
+        <translation type="obsolete">Grønn 60%</translation>
+    </message>
+    <message>
+        <source>Green 30%</source>
+        <comment>Color 29</comment>
+        <translation type="obsolete">Grønn 30%</translation>
+    </message>
+    <message>
+        <source>Green 100% for undergrowth</source>
+        <comment>Color 30</comment>
+        <translation type="obsolete">Grønn 60%</translation>
+    </message>
+    <message>
+        <source>White over yellow</source>
+        <comment>Color 31</comment>
+        <translation type="obsolete">Grønn 30%</translation>
+    </message>
+    <message>
+        <source>Yellow</source>
+        <comment>Color 33</comment>
+        <translation type="obsolete">Gul</translation>
+    </message>
+    <message>
+        <source>Yellow 50%</source>
+        <comment>Color 35</comment>
+        <translation type="obsolete">Gul 50%</translation>
+    </message>
+    <message>
+        <source>White over green and brown</source>
+        <comment>Color 51</comment>
+        <translation type="obsolete">Blå 50%</translation>
+    </message>
+    <message>
+        <source>Brown 100% point symbols </source>
+        <comment>Color 39</comment>
+        <translation type="obsolete">Hvit for jernbane</translation>
+    </message>
+    <message>
+        <source>Brown 100% line symbols </source>
+        <comment>Color 42</comment>
+        <translation type="obsolete">Sort under lilla for sporsymboler</translation>
+    </message>
+    <message>
+        <source>Green 100% bellow green areas (extra)</source>
+        <comment>Color 59</comment>
+        <translation type="obsolete">Grønn 60%</translation>
+    </message>
+    <message>
+        <source>Black 50%</source>
+        <comment>Color 11</comment>
+        <translation type="obsolete">Sort 65%</translation>
+    </message>
+    <message>
+        <source>Black 20%</source>
+        <comment>Color 12</comment>
+        <translation type="obsolete">Sort 20%</translation>
+    </message>
+    <message>
+        <source>Blue 50%</source>
+        <comment>Color 19</comment>
+        <translation type="obsolete">Blå 50%</translation>
+    </message>
+    <message>
+        <source>OpenOrienteering Orange</source>
+        <comment>Color 20</comment>
+        <translation type="obsolete">OpenOrienteering-oransje</translation>
+    </message>
+    <message>
+        <source>Black 25% (Grey)</source>
+        <comment>Color 26</comment>
+        <translation type="obsolete">Sort 25% (grå)</translation>
+    </message>
+    <message>
+        <source>Green 100%/Black 50%</source>
+        <comment>Color 27</comment>
+        <translation type="obsolete">Grønn 100%/Sort 50%</translation>
+    </message>
+    <message>
+        <source>Black 35% (Grey)</source>
+        <comment>Color 28</comment>
+        <translation type="obsolete">Sort 25% (grå)</translation>
     </message>
 </context>
 <context>

@@ -441,7 +441,8 @@ void mergeISOM(Map& target, const QDir& symbol_set_dir)
 		auto const index = i - 1;
 		auto* const color = map.getColor(index);
 		if (color->getSpotColorName() == QStringLiteral("GREEN 87.9, BLACK 30, BLUE 100")
-		    || color->getSpotColorName() == QStringLiteral("GREEN 60") )
+		    || color->getSpotColorName() == QStringLiteral("BLACK 0, GREEN 60, YELLOW 0")
+		    || color->getSpotColorName() == QStringLiteral("GREEN 60, YELLOW 0") )
 		{
 			markSymbolsByColor(map, color);
 			map.deleteColor(index);
