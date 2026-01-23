@@ -313,7 +313,7 @@ add_dependencies(Mapper_Common
   Mapper_prerequisites
 )
 target_link_libraries(Mapper_Common
-  Polyclipping::Polyclipping
+  Clipper2::Clipper2
   ${PROJ_LIBRARIES}
   Qt5::Widgets
 )
